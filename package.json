@@ -9,6 +9,12 @@
     "preview": "astro preview",
     "astro": "astro"
   },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-rsync": "0.1.0",
+    "gulp-util": "^3.0.8",
+    "sass": "^1.69.5"
+  },
   "dependencies": {
     "astro": "^4.8.2"
   }
