@@ -1,27 +1,12 @@
 ---
-title: 'Моя первая запись в блоге'
-pubDate: 2022-07-01
-description: 'Это первый пост моего нового Astro блога.'
-author: 'Ученик Astro'
+layout: ../../layouts/MarkdownPostLayout.astro
+title: My Second Blog Post
+author: Astro Learner
+description: "After learning some Astro, I couldn't stop!"
 image:
-    url: 'https://docs.astro.build/assets/full-logo-light.png'
-    alt: 'Полный логотип Astro.'
-tags: ["astro", "блогинг", "обучение на публике"]
+    url: "https://docs.astro.build/assets/arc.webp"
+    alt: "Thumbnail of Astro arcs."
+pubDate: 2022-07-08
+tags: ["astro", "blogging", "learning in public", "successes"]
 ---
-# Моя первая запись в блоге
-
-Опубликовано: 01.07.2022
-
-Добро пожаловать в мой _новый блог_ об изучении астро! Здесь я буду рассказывать о своем учебном пути, пока я создаю новый сайт.
-
-## Чего я добился
-
-1. **Установка Astro**: Сначала я создал новый проект Astro и настроил свои учетные записи в Интернете.
-
-2. **Создание страниц**: Затем я научился создавать страницы, создавая новые файлы `.astro` и помещая их в папку `src/pages/`.
-
-3. **Создание записей в блоге**: Это моя первая запись в блоге! Теперь у меня есть страницы Astro и посты в формате Markdown!
-
-## Что дальше
-
-Я завершу учебное пособие по Astro, а затем продолжу добавлять новые записи. Следите за обновлениями.
+After a successful first week learning Astro, I decided to try some more. I wrote and imported a small component from memory!
