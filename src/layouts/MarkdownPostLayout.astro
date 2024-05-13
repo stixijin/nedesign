@@ -10,6 +10,6 @@ const pageTitle = frontmatter.title;
 <BaseLayout pageTitle={pageTitle}>
     <p>АВТОР: {frontmatter.author}</p>
     <slot />
-    <p>Опубликовано: {frontmatter.pubDate.toString().slice(0, 10)}</p>
+    <p>{frontmatter.pubDate.toString().slice(0,10)}</p>
     <Tags></Tags>
 </BaseLayout>
