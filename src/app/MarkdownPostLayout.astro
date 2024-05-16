@@ -1,8 +1,8 @@
 ---
 const { frontmatter } = Astro.props;
 import "../styles/global.css";
-import BaseLayout from "../layouts/BaseLayout.astro";
-import Tags from "../components/Tags.astro";
+import BaseLayout from "../app/BaseLayout.astro";
+import Tags from "../entities/tags/ui/Tags.astro";
 import { fade } from "astro:transitions";
 
 const pageTitle = frontmatter.title;
