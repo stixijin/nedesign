@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import BaseLayout from '../../app/BaseLayout.astro';
+import App from '../../app/app.astro';
 import BlogPost from '../../entities/articleCard/ui/articleCard.astro';
 
 
@@ -20,9 +20,9 @@ export async function getStaticPaths() {
 const { tag } = Astro.params;
 const { posts } = Astro.props;
 ---
-<BaseLayout pageTitle={tag}>
+<App pageTitle={tag}>
   <p>Посты с тегом {tag}</p>
   <ul>
     { posts.map((post) => <BlogPost url={`/posts/${post.slug}/`} title={post.data.title} />) }
   </ul>
-</BaseLayout>
+</App>

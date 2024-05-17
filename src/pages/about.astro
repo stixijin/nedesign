@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../app/BaseLayout.astro';
+import App from '../app/app.astro';
 
 const pageTitle = "Обо мне";
 const identity = {
@@ -16,7 +16,7 @@ const goal = 3;
 const skillColor = "navy";
 ---
 
-<BaseLayout pageTitle={pageTitle}>
+<App pageTitle={pageTitle}>
 	<p>Here are a few facts about me:</p>
 	<ul>
 		<li>My name is {identity.firstName}.</li>
@@ -50,5 +50,5 @@ const skillColor = "navy";
 			<p>My goal is not 3 days.</p>
 		)
 	}
-</BaseLayout>
+</App>
 

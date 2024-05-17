@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import BaseLayout from "../../app/BaseLayout.astro";
+import App from "../../app/app.astro";
 const allPosts = await getCollection("posts");
 const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
 import Tags from "../../entities/tags/ui/Tags.astro";
@@ -8,8 +8,8 @@ const pageTitle = "Индекс тегов";
 
 ---
 
-<BaseLayout pageTitle={pageTitle}>
+<App pageTitle={pageTitle}>
 
 <Tags></Tags>
 
-</BaseLayout>
+</App>

@@ -1,18 +1,18 @@
 ---
 import { getCollection } from "astro:content";
-import BaseLayout from '../app/BaseLayout.astro';
+import App from '../app/app.astro';
 import BlogPost from '../entities/articleCard/ui/articleCard.astro';
 const allPosts = await getCollection("posts");
 import Tags from "../entities/tags/ui/Tags.astro";
 const pageTitle = "Блог";
 ---
 
-<BaseLayout pageTitle={pageTitle}>
+<App pageTitle={pageTitle}>
     <p>This is where I will post about my journey learning Astro.</p>
     <ul>
     
 		{allPosts.map((post) =>     <BlogPost url={`/posts/${post.slug}/`} title={post.data.title} />)}
     </ul>
   <Tags></Tags>
-</BaseLayout>
+</App>
 
