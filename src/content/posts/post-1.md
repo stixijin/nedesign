@@ -2,6 +2,7 @@
 title: 'Моя первая запись в блоге'
 pubDate: 2022-07-01
 description: 'Это первый пост моего нового Astro блога.'
+author: "Никита"
 image:
     url: 'https://docs.astro.build/assets/full-logo-light.png'
     alt: 'Полный логотип Astro.'
