@@ -5,9 +5,12 @@ const areaName = "all"
 
 const {pageTitle} = Astro.props;
 
+const bgImage = "/bgArea_dark.jpg"
+
+
+
 ---
 <Area pageTitle={pageTitle} areaName={areaName}>
     <slot name="menu"></slot>
     <slot name="content"></slot>
 </Area>
-

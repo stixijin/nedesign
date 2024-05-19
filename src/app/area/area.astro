@@ -9,13 +9,20 @@ import type interfacePage from "./intarfaceArea";
 type Props = interfacePage;
 
 const {areaName, pageTitle} = Astro.props
-const areaTitle = areas.map((area)=> area.area === areaName && area.name );
-const logoArea = areas.map((area)=> area.area === areaName && area.logo);
-const linkArea = areas.map((area)=> area.area === areaName && area.link)
+
+const currentArea = areas.find(area => area.area == areaName);
+
+
+const areaTitle = currentArea.name;
+const logoArea = currentArea.logo;
+const linkArea = currentArea.link;
+const bgArea = currentArea.bgImg;
+
 
 const title = pageTitle || areaTitle;
 ---
 
-<App pageTitle={title}>
+<App pageTitle={title} bgImg={bgArea}>
     <MainMenu logoLink={linkArea} logoArea={areaTitle}></MainMenu>
 </App>
+
