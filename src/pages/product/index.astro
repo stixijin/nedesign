@@ -8,13 +8,6 @@ const {pageTitle} = Astro.props;
 ---
 <Area pageTitle={pageTitle} areaName={areaName}>
     <slot name="menu"></slot>
+    <slot></slot>
     <slot name="content"></slot>
 </Area>
-
-<style is:global lang="scss">
-	.dark  { 
-	  background-image: url(/bgBooks_dark.jpg); 
-	  background-color: #0D0D0D;
-	  color: #fff;
-	  }
-</style>
