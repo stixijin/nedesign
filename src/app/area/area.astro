@@ -1,0 +1,21 @@
+---
+import App from '../app.astro';
+import MainMenu from '../../widgets/mainMenu/ui/mainMenu.astro';
+import areas from "./areas.json";
+
+
+import type interfacePage from "./intarfaceArea";
+
+type Props = interfacePage;
+
+const {areaName, pageTitle} = Astro.props
+const areaTitle = areas.map((area)=> area.area === areaName && area.name );
+const logoArea = areas.map((area)=> area.area === areaName && area.logo);
+const linkArea = areas.map((area)=> area.area === areaName && area.link)
+
+const title = pageTitle || areaTitle;
+---
+
+<App pageTitle={title}>
+    <MainMenu logoLink={linkArea} logoArea={areaTitle}></MainMenu>
+</App>

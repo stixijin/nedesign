@@ -1,0 +1,59 @@
+@import '../../../tokens/main';
+
+
+.areaSwitcher {
+    padding: 12px;
+    border-radius: 16px;
+    display: flex;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.areaList {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    position:absolute;
+    top: 60px;
+    width: 340px;
+    padding: 10px 10px 12px 10px;
+    border-radius: 16px;
+}
+
+.areaList .mainLogo:not(:first-of-type) {
+    margin-top: 8px;
+}
+
+.dark {
+
+    .areaList {
+        background: $dark_surface;
+        border: 1px solid $dark_border;
+    }
+
+    .areaSwitcher {
+        color: $dark_gray100;
+        background: $dark_surface;
+        border: 1px solid $dark_border;
+    }
+    
+    .areaSwitcher:hover {
+        color: $dark_gray100;
+        background: $dark_surfaceHover;
+        border: 1px solid $dark_borderHover;
+    }
+    .areaSwitcher:active {
+        color: $dark_gray100;
+        background: $dark_surfaceActive;
+        border: 1px solid $dark_borderActive;
+    }
+    .areaSwitcher img {
+        height: 32px;
+        width: 32px;
+        filter: invert(100%);
+    }
+/*     img path {
+        fill: $dark_gray100;
+    } */
+    
+}

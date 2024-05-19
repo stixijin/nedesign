@@ -1,7 +1,16 @@
 ---
 import App from '../app/app.astro';
+import MainMenu from '../widgets/mainMenu/ui/mainMenu.astro';
 const pageTitle = "Главная страница";
+const logoArea = "Все продукты"
+const logoLink = "/"
 ---
 <App pageTitle={pageTitle}>
-  <h2>My АВЕСОМ blog subtitle</h2>
+    <MainMenu logoLink={logoLink} logoArea={logoArea}></MainMenu>
+    <main>
+      <header></header>
+      <slot></slot>
+      <footer></footer>
+    </main>
 </App>
+

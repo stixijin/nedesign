@@ -13,10 +13,13 @@
     "gulp": "^4.0.2",
     "gulp-rsync": "0.1.0",
     "gulp-util": "^3.0.8",
-    "sass": "^1.69.5"
+    "sass": "^1.77.2"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.5",
-    "astro": "^4.8.2"
+    "@astrojs/vue": "^4.2.0",
+    "astro": "^4.8.5",
+    "sharp": "^0.33.4",
+    "vue": "^3.4.27"
   }
 }

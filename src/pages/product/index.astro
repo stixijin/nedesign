@@ -1,0 +1,15 @@
+---
+import App from '../../app/app.astro';
+import MainMenu from '../../widgets/mainMenu/ui/mainMenu.astro';
+const pageTitle = "Главная страница";
+const logoArea = "Продуктовый дизайнер"
+const logoLink = "/product"
+
+---
+<App pageTitle={pageTitle}>
+    <MainMenu logoLink={logoLink} logoArea={logoArea}></MainMenu>
+    <main>
+      <slot></slot>
+    </main>
+</App>
+

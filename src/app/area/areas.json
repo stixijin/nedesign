@@ -1,0 +1,35 @@
+ [
+    {
+        "area": "all",
+        "name": "Все сферы",
+        "logo": "main",
+        "link": "/"
+    },
+    {
+        "area": "designer",
+        "name": "Продуктовый дизайнер",
+        "logo": "main",
+        "link": "/product"
+    },
+    {
+        "area": "writer",
+        "name": "Писатель / Сценарист",
+        "logo": "main",
+        "link": "/writer"
+    },
+    {
+        "area": "gamedev",
+        "name": "Гейм-дизайнер",
+        "logo": "main",
+        "link": "/gamedev"
+    },
+    {
+        "area": "freelancer",
+        "name": "Фрилансер",
+        "logo": "main",
+        "link": "/freelancer"
+    }
+ ]
+ 
+
+

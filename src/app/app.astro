@@ -1,26 +1,37 @@
 ---
-import './global.scss';
-import Header from '../widgets/header/ui/Header.astro';
-import Footer from '../widgets/footer/ui/Footer.astro';
+import MainMenu from "../widgets/mainMenu/ui/mainMenu.astro";
 import { ViewTransitions } from "astro:transitions";
-const { pageTitle } = Astro.props;
+const { pageTitle} = Astro.props;
 ---
 
-<html lang="ru">
+<html class="dark" lang="ru" >
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{pageTitle}</title>
+		<title>Елисеев Никита - {pageTitle}</title>
 		<ViewTransitions />
 	</head>
-	<body>
-		<Header />
-		<main transition:animate="slide">
-			<h1>{pageTitle}</h1>
-			<slot />
-		</main>
-		<Footer />
+	<body  > 
+
+		<slot />
 	</body>
+
 </html>
+
+<style lang="scss">
+	* {
+  		box-sizing: border-box;
+	}
+	.dark  { 
+	  background-image: url(./appBG_dark.jpg); 
+	  background-color: #0D0D0D;
+	  color: #fff;
+	  }
+	html {
+	background-image: url(./appBG_white.jpg); 
+	  background-color: #E1E1E1;
+	  color: #000;
+	}
+</style>

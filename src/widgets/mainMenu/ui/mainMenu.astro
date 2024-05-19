@@ -1,0 +1,30 @@
+---
+import MainLogo from "../../../entities/mainLogo/ui/mainLogo.astro";
+import AreaSwitcher from "../../../entities/areasSwitcher/ui/areaSwitcher.vue";
+import './mainMenu.scss';
+
+import {Image} from "astro:assets";
+
+import Icon from "../../../shared/icons/areaSwith.svg";
+
+
+import areas from "../../../app/area/areas.json";
+const { logoArea, logoLink} = Astro.props;
+
+const clas = "mainLogo";
+---
+
+<nav class="mainMenu">
+    
+
+
+    <div class="mainMenu__logo">
+        <MainLogo logoLink="" logoArea={logoArea}></MainLogo>
+        <AreaSwitcher client:load>
+            <Image  slot="icon" src={Icon} alt="Иконка"></Image>
+            <div slot="areaList">{areas.map((area)=> area.link !== logoLink && <MainLogo logoClass={clas} logoLink={area.link} logoArea={area.name}></MainLogo>)}</div>
+        </AreaSwitcher>
+    </div>
+   
+<slot></slot>
+</nav>

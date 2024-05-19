@@ -1,0 +1,10 @@
+@import "../../../tokens/main.scss";
+
+.mainMenu {
+    max-width: 340px;
+}
+
+.mainMenu__logo {
+    display: flex;
+    gap: 8px;
+}
