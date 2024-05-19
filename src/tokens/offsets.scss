@@ -1,0 +1,25 @@
+
+$module: 4px;
+$step: 4px;
+
+$offset0: calc($module + ($step* 0));
+$offset10: calc($module - ($step / 2));
+$offset20: calc($module);
+$offset30: calc($module + ($step / 2));
+$offset40: calc($module + ($step));
+$offset50: calc($module + ($step * 2));
+$offset60: calc($module + ($step * 3));
+$offset70: calc($module + ($step * 4));
+$offset80: calc($module + ($step * 5));
+$offset90: calc($module + ($step * 6));
+$offset100: calc($module + ($step * 7));
+$offset110: calc($module + ($step * 8));
+$offset120: calc($module + ($step * 9));
+$offset130: calc($module + ($step * 10));
+$offset140: calc($module + ($step * 11));
+$offset150: calc($module + ($step * 12));
+$offset160: calc($module + ($step * 13));
+$offset170: calc($module + ($step * 14));
+
+
+$mainOffset: $offset40;

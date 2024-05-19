@@ -2,11 +2,12 @@
 
 
 .areaSwitcher {
-    padding: 12px;
-    border-radius: 16px;
+    padding: $offset50;
+    border-radius: $mainBR;
     display: flex;
     cursor: pointer;
     transition: 0.3s;
+    height: fit-content;
 }
 
 .areaList {
@@ -14,15 +15,15 @@
     flex-direction: column;
     box-sizing: border-box;
     position: absolute;
-    top: 52px;
+    top: 64px;
     left: 0;
     width: 100%;
-    padding: 10px 10px 12px 10px;
-    border-radius: 16px;
+    padding: $offset50;
+    border-radius: $mainBR;
 }
 
 .areaList .mainLogo:not(:first-of-type) {
-    margin-top: 8px;
+    margin-top: $offset20;
 }
 
 .dark {

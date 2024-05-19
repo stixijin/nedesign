@@ -4,17 +4,18 @@
 
 .mainLogo {
     display: flex;
-    gap: 8px;
-    padding: 8px;
-    border-radius: 16px;
+    gap: $offset40;
+    padding: $offset40;
+    border-radius: $mainBR;
     width: 100%;
     box-sizing: border-box;
+    height: fit-content;
 }
 
 .mainLogo__label {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: $offset10;
 }
 
 .mainLogo__name {

@@ -1,9 +1,11 @@
 @import 'colors';
+@import 'border-radius';
+@import 'offsets';
 
 
 * {
     font-family: 'Montserrat';
-
+    box-sizing: border-box;
 }
 
 p {
@@ -12,4 +14,20 @@ p {
 
 a {
     text-decoration: none;
+    display: block;
+}
+
+li, ul {
+    padding: 0;
+    margin: 0;
+    display: block;
+}
+
+li {
+    list-style-type: none;
+}
+
+button {
+    display: flex;
+    box-sizing: border-box;
 }

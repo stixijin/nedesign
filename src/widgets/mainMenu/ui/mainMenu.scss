@@ -6,6 +6,7 @@
 
 .mainMenu__logo {
     display: flex;
-    gap: 8px;
+    gap: $offset20;
     position: relative;
+    align-items: center;
 }
