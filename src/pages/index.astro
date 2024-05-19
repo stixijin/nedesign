@@ -1,16 +1,13 @@
 ---
-import App from '../app/app.astro';
-import MainMenu from '../widgets/mainMenu/ui/mainMenu.astro';
-const pageTitle = "Главная страница";
-const logoArea = "Все продукты"
-const logoLink = "/"
+import Area from '../app/area/area.astro';
+
+const areaName = "all"
+
+const {pageTitle} = Astro.props;
+
 ---
-<App pageTitle={pageTitle}>
-    <MainMenu logoLink={logoLink} logoArea={logoArea}></MainMenu>
-    <main>
-      <header></header>
-      <slot></slot>
-      <footer></footer>
-    </main>
-</App>
+<Area pageTitle={pageTitle} areaName={areaName}>
+    <slot name="menu"></slot>
+    <slot name="content"></slot>
+</Area>
 
