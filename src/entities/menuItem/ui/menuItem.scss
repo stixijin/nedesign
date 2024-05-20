@@ -1,0 +1,50 @@
+@import '../../../tokens/main';
+
+
+.menuItem {
+    display: flex;
+    border-radius: $border-radius40;
+    width: 100%;
+    height: fit-content;
+    gap: $offset40;
+    padding: $offset20 $offset40 $offset20 $offset30;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.menuItem__icon, .menuItem__icon svg {
+    height: 20px;
+    width: 20px;
+}
+
+.menuItem__icon {
+    margin-top: 1px;
+}
+
+.dark {
+    .menuItem {
+        color: $dark_text;
+        border: 1px solid transparent;
+        transition: 0.3s;
+    }
+    .selected {
+        background: $dark_accent40;
+        border: 1px solid $dark_accent30
+    }
+    .menuItem:hover {
+        background: $dark_surface30;
+        border: 1px solid $dark_surface40;
+    }
+    .selected:hover {
+        background: $dark_accent40;
+        border: 1px solid $dark_accent20
+    }
+    .menuItem:active {
+        background: $dark_surface40;
+        border: 1px solid $dark_surface40;
+    }
+    .selected:active {
+        background: $dark_accent40;
+        border: 1px solid $dark_accent20
+    }
+}

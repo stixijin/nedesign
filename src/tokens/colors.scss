@@ -19,12 +19,27 @@ $dark_gray90: hsla(240, 24%, 69%, 100);
 $dark_gray100: hsla(0, 0%, 100%, 100);
 
 
+
+$dark_accent0:hsl(21.8,100%,2.2%);
+$dark_accent10:hsl(19.5,100%,25.3%);
+$dark_accent20:hsl(19.5,100%,33.1%);
+$dark_accent30:hsl(19.6,100%,40.8%);
+$dark_accent40:hsl(19.7,100%,48.4%);
+$dark_accent50:hsl(19.7,100%,60%);
+$dark_accent60:hsl(19.6,100%,67.6%);
+$dark_accent70:hsl(20,100%,75.3%);
+$dark_accent80:hsl(19.5,100%,83.1%);
+$dark_accent90:hsl(19.1,100%,90.8%);
+$dark_accent100:hsl(22.5,100%,98.4%);
+
 $dark_surface: $dark_surface20;
 $dark_border: $dark_surface30;
 $dark_surfaceHover: $dark_surface30;
 $dark_borderHover: $dark_surface20;
 $dark_surfaceActive: $dark_surface40;
 $dark_borderActive: $dark_surface50;
+
+$dark_text: $dark_gray100
 
 
 

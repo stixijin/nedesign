@@ -1,0 +1,21 @@
+@import "../../../tokens/main.scss";
+
+
+
+.blockMenu {
+    padding: $offset50;
+    width: 100%;
+    border-radius: $mainBR;
+    display: flex;
+    flex-direction: column;
+    gap: $offset20;
+}
+
+
+.dark {
+    .blockMenu {
+        background: $dark_surface;
+        border: 1px solid $dark_border;
+    }
+}
+

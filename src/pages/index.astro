@@ -1,15 +1,11 @@
 ---
-import Area from '../app/area/area.astro';
+import All from '../app/area/all.astro';
 
-const areaName = "all"
-
-const {pageTitle} = Astro.props;
-
-
+const pageTitle = "Главная";
 
 ---
-<Area pageTitle={pageTitle} areaName={areaName}>
-        <slot name="menu"></slot>
-        <slot></slot>
-        <slot name="content"></slot>
-</Area>
+<All pageTitle={pageTitle}>
+        <div slot="pageContent">
+            <h1>Главная страница</h1>
+        </div>
+</All>

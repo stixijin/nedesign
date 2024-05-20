@@ -31,3 +31,24 @@ button {
     display: flex;
     box-sizing: border-box;
 }
+
+body {
+    margin: 0;
+    padding: 12px;
+}
+
+h1{
+    color: #fff;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    gap: 16px;
+}
+
+main {
+    height: 4000px;
+    margin-left: 356px;
+    width: calc(100vw - 24px - 340px - 16px);
+}

@@ -8,9 +8,14 @@ import logoProduct from './logo/product.svg';
 
 const { logoArea, logoImg, logoLink} = Astro.props;
 
+const currentUrl = Astro.url.pathname;
+
+var selected = false;
+if(logoLink === currentUrl) selected = true;
+
 ---
 
-<a href={logoLink} class="mainLogo">
+<a href={selected == false && logoLink} class="mainLogo">
     <Image src={logoProduct} alt="Логотип. Елисеев Никита" />
     <div class="mainLogo__label">
         <div class="mainLogo__name">

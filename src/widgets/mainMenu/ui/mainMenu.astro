@@ -11,7 +11,8 @@ import Icon from "../../../shared/icons/areaSwith.svg";
 import areas from "../../../app/area/areas.json";
 const { logoArea, logoLink} = Astro.props;
 
-const clas = "mainLogo";
+
+
 ---
 
 <nav class="mainMenu">
@@ -19,12 +20,16 @@ const clas = "mainLogo";
 
 
     <div class="mainMenu__logo">
-        <MainLogo logoLink="" logoArea={logoArea}></MainLogo>
+        <MainLogo logoLink={logoLink} logoArea={logoArea}></MainLogo>
         <AreaSwitcher client:load>
             <Image  slot="icon" src={Icon} alt="Иконка"></Image>
-            <div slot="areaList">{areas.map((area)=> area.link !== logoLink && <MainLogo logoClass={clas} logoLink={area.link} logoArea={area.name}></MainLogo>)}</div>
+            <div slot="areaList">{areas.map((area)=> area.link !== logoLink && <MainLogo logoLink={area.link} logoArea={area.name}></MainLogo>)}</div>
         </AreaSwitcher>
     </div>
-   
-<slot></slot>
+    <div class="mainMenu__content">
+        <slot name="menuContent"></slot>
+    </div>
+    <div class="mainMenu__end">
+        <slot name="menuEnd"></slot>
+    </div>
 </nav>

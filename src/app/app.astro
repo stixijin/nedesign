@@ -11,7 +11,7 @@ const bgImage = "url(" + bgImg + ")";
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Елисеев Никита - {pageTitle}</title>
+		<title>Елисеев Никита —  {pageTitle}</title>
 		<ViewTransitions />
 	</head>
 	<body  > 
@@ -25,6 +25,8 @@ const bgImage = "url(" + bgImg + ")";
 	.dark  { 
 	  background-image: var(--bgImage); 
 	  background-color: #0D0D0D;
-	  color: #fff;
+	  }
+	  html {
+		background-attachment: fixed;
 	  }
 </style>

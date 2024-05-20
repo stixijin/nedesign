@@ -1,0 +1,55 @@
+---
+import App from "../app.astro";
+import MainMenu from "../../widgets/mainMenu/ui/mainMenu.astro";
+import BlockMenu from "../../entities/blockMenu/ui/blockMenu.astro";
+import MenuItem from "../../entities/menuItem/ui/menuItem.astro";
+
+const { pageTitle } = Astro.props;
+
+const bgArea = "/bgArea_dark.jpg";
+const areaLink = "/writer";
+const areaTitle = "Писатель / Сценарист";
+const title = areaTitle + "  |  " + pageTitle;
+import * as AstroFeather from "astro-feather";
+---
+
+<App pageTitle={title} bgImg={bgArea}>
+    <div class="container">
+        <MainMenu logoArea={areaTitle} logoLink={areaLink}>
+            <div slot="menuContent">
+                <BlockMenu>
+                    <MenuItem href={areaLink} text="Главная">
+                        <div slot="icon"><AstroFeather.HomeIcon/></div>
+                    </MenuItem>
+                    <MenuItem href="/hot" text="Популярное">
+                        <div slot="icon"><AstroFeather.StarIcon /></div>
+                    </MenuItem>
+                    <MenuItem href="/frash" text="Свежее">
+                        <div slot="icon"><AstroFeather.ClockIcon /></div>
+                    </MenuItem>
+                    <MenuItem href="/feed" text="Моя лента">
+                        <div slot="icon"><AstroFeather.AirplayIcon /></div>
+                    </MenuItem>
+                    <MenuItem href="/bookmarks" text="Закладки">
+                        <div slot="icon"><AstroFeather.BookmarkIcon /></div>
+                    </MenuItem>
+                    <MenuItem href="/shop" text="Магазин">
+                        <div slot="icon"><AstroFeather.ShoppingBagIcon /></div>
+                    </MenuItem>
+                    <MenuItem href="/video" text="Видео">
+                        <div slot="icon"><AstroFeather.YoutubeIcon /></div>
+                    </MenuItem>
+                    <MenuItem href="/photo" text="Фото">
+                        <div slot="icon"><AstroFeather.ImageIcon /></div>
+                    </MenuItem>
+                    <MenuItem href="/info" text="Для работодателей">
+                        <div slot="icon"><AstroFeather.InfoIcon /></div>
+                    </MenuItem>
+                </BlockMenu>
+            </div>
+        </MainMenu>
+    </div>
+    <main>
+        <slot name="pageContent" />
+    </main>
+</App>
