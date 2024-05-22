@@ -3,7 +3,7 @@ import App from '../app.astro';
 import MainMenu from '../../widgets/mainMenu/ui/mainMenu.astro';
 import BlockMenu from "../../entities/blockMenu/ui/blockMenu.astro"
 import MenuItem from "../../entities/menuItem/ui/menuItem.astro";
-import * as AstroFeather from "astro-feather";
+
 
 const {pageTitle} = Astro.props;
 
@@ -19,9 +19,9 @@ const title = areaTitle +  '  |  ' + pageTitle;
 
 <App pageTitle={title} bgImg={bgArea}>
     <div class="container">
-        <MainMenu logoArea={areaTitle} logoLink={areaLink}>
-            <div slot="menuContent">
-                <BlockMenu>
+            <MainMenu logoArea={areaTitle} logoLink={areaLink}>
+                <div slot="menuContent">
+                    <BlockMenu>
                     <MenuItem href={areaLink} icon="feather/home" text="Главная" />
                     <MenuItem href="/hot" icon="feather/star" text="Популярное" />
                     <MenuItem href="/frash" icon="feather/clock" text="Свежее" />
@@ -31,9 +31,9 @@ const title = areaTitle +  '  |  ' + pageTitle;
                     <MenuItem href="/video" icon="feather/youtube" text="Видео" />
                     <MenuItem href="/photo" icon="feather/image" text="Фото" />
                     <MenuItem href="/info" icon="feather/info" text="Для работодателей" />
-                </BlockMenu>
-            </div>
-        </MainMenu>
+                    </BlockMenu>
+                </div>
+            </MainMenu>
         </div>
         <main>
             <slot name="pageContent"></slot>
