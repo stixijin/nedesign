@@ -19,39 +19,21 @@ const title = areaTitle +  '  |  ' + pageTitle;
 
 <App pageTitle={title} bgImg={bgArea}>
     <div class="container">
-            <MainMenu logoArea={areaTitle} logoLink={areaLink}>
-                <div slot="menuContent">
-                    <BlockMenu>
-                        <MenuItem href={areaLink} text="Главная">
-                            <div slot="icon"><AstroFeather.HomeIcon/></div>
-                        </MenuItem>
-                        <MenuItem href="/hot" text="Популярное">
-                            <div slot="icon"><AstroFeather.StarIcon /></div>
-                        </MenuItem>
-                        <MenuItem href="/frash" text="Свежее">
-                            <div slot="icon"><AstroFeather.ClockIcon /></div>
-                        </MenuItem>
-                        <MenuItem href="/feed" text="Моя лента">
-                            <div slot="icon"><AstroFeather.AirplayIcon /></div>
-                        </MenuItem>
-                        <MenuItem href="/bookmarks" text="Закладки">
-                            <div slot="icon"><AstroFeather.BookmarkIcon /></div>
-                        </MenuItem>
-                        <MenuItem href="/shop" text="Магазин">
-                            <div slot="icon"><AstroFeather.ShoppingBagIcon /></div>
-                        </MenuItem>
-                        <MenuItem href="/video" text="Видео">
-                            <div slot="icon"><AstroFeather.YoutubeIcon /></div>
-                        </MenuItem>
-                        <MenuItem href="/photo" text="Фото">
-                            <div slot="icon"><AstroFeather.ImageIcon /></div>
-                        </MenuItem>
-                        <MenuItem href="/info" text="Для работодателей">
-                            <div slot="icon"><AstroFeather.InfoIcon /></div>
-                        </MenuItem>
-                    </BlockMenu>
-                </div>
-            </MainMenu>
+        <MainMenu logoArea={areaTitle} logoLink={areaLink}>
+            <div slot="menuContent">
+                <BlockMenu>
+                    <MenuItem href={areaLink} icon="feather/home" text="Главная" />
+                    <MenuItem href="/hot" icon="feather/star" text="Популярное" />
+                    <MenuItem href="/frash" icon="feather/clock" text="Свежее" />
+                    <MenuItem href="/feed" icon="feather/airplay" text="Моя лента" />
+                    <MenuItem href="/bookmarks" icon="feather/bookmark" text="Закладки" />
+                    <MenuItem href="/shop" icon="feather/shopping-bag" text="Магазин" />
+                    <MenuItem href="/video" icon="feather/youtube" text="Видео" />
+                    <MenuItem href="/photo" icon="feather/image" text="Фото" />
+                    <MenuItem href="/info" icon="feather/info" text="Для работодателей" />
+                </BlockMenu>
+            </div>
+        </MainMenu>
         </div>
         <main>
             <slot name="pageContent"></slot>

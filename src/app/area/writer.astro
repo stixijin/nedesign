@@ -10,7 +10,6 @@ const bgArea = "/bgArea_dark.jpg";
 const areaLink = "/writer";
 const areaTitle = "Писатель / Сценарист";
 const title = areaTitle + "  |  " + pageTitle;
-import * as AstroFeather from "astro-feather";
 ---
 
 <App pageTitle={title} bgImg={bgArea}>
@@ -18,33 +17,15 @@ import * as AstroFeather from "astro-feather";
         <MainMenu logoArea={areaTitle} logoLink={areaLink}>
             <div slot="menuContent">
                 <BlockMenu>
-                    <MenuItem href={areaLink} text="Главная">
-                        <div slot="icon"><AstroFeather.HomeIcon/></div>
-                    </MenuItem>
-                    <MenuItem href="/hot" text="Популярное">
-                        <div slot="icon"><AstroFeather.StarIcon /></div>
-                    </MenuItem>
-                    <MenuItem href="/frash" text="Свежее">
-                        <div slot="icon"><AstroFeather.ClockIcon /></div>
-                    </MenuItem>
-                    <MenuItem href="/feed" text="Моя лента">
-                        <div slot="icon"><AstroFeather.AirplayIcon /></div>
-                    </MenuItem>
-                    <MenuItem href="/bookmarks" text="Закладки">
-                        <div slot="icon"><AstroFeather.BookmarkIcon /></div>
-                    </MenuItem>
-                    <MenuItem href="/shop" text="Магазин">
-                        <div slot="icon"><AstroFeather.ShoppingBagIcon /></div>
-                    </MenuItem>
-                    <MenuItem href="/video" text="Видео">
-                        <div slot="icon"><AstroFeather.YoutubeIcon /></div>
-                    </MenuItem>
-                    <MenuItem href="/photo" text="Фото">
-                        <div slot="icon"><AstroFeather.ImageIcon /></div>
-                    </MenuItem>
-                    <MenuItem href="/info" text="Для работодателей">
-                        <div slot="icon"><AstroFeather.InfoIcon /></div>
-                    </MenuItem>
+                    <MenuItem href={areaLink} icon="home" text="Главная" />
+                    <MenuItem href="/hot" icon="star" text="Популярное" />
+                    <MenuItem href="/frash" icon="clock" text="Свежее" />
+                    <MenuItem href="/feed" icon="airplay" text="Моя лента" />
+                    <MenuItem href="/bookmarks" icon="bookmark" text="Закладки" />
+                    <MenuItem href="/shop" icon="shopping-bag" text="Магазин" />
+                    <MenuItem href="/video" icon="youtube" text="Видео" />
+                    <MenuItem href="/photo" icon="image" text="Фото" />
+                    <MenuItem href="/info" icon="info" text="Для работодателей" />
                 </BlockMenu>
             </div>
         </MainMenu>
