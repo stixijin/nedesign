@@ -4,18 +4,13 @@ import './mainLogo.scss';
 
 import { Image } from 'astro:assets';
 
-import logoProduct from './logo/product.svg';
+import logoProduct from './logo/designer.svg';
 
 const { logoArea, logoImg, logoLink} = Astro.props;
 
-const currentUrl = Astro.url.pathname;
-
-var selected = false;
-if(logoLink === currentUrl) selected = true;
-
 ---
 
-<a href={selected == false && logoLink} class="mainLogo">
+<a href={logoLink} class="mainLogo">
     <Image src={logoProduct} alt="Логотип. Елисеев Никита" />
     <div class="mainLogo__label">
         <div class="mainLogo__name">
