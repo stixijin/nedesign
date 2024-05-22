@@ -1,34 +1,23 @@
 ---
 import MainLogo from "#entities/mainLogo/ui/mainLogo.astro";
-import AreaSwitcher from "#entities/areasSwitcher/ui/areaSwitcher.vue";
+import AreaSwitcher from "#entities/areasSwitcher/ui/areaSwitcher.astro";
 import './mainMenu.scss';
-import Button from '#shared/button/button.astro';
-import ButtonVue from '#shared/button/button.vue';
-import Callback from "#features/callback/ui/callback.vue";
+import Callback from "#features/callback/ui/callback.astro";
 
 
-import {Image} from "astro:assets";
-
-import { Icon } from 'astro-icon/components'
-
-
-import areas from "#app/area/areas.json";
 const { logoArea, logoLink} = Astro.props;
 
 ---
 
 <nav class="mainMenu">
     <div class="mainMenu__logo">
-        <MainLogo logoLink={logoLink} logoArea={logoArea}></MainLogo>
-        <AreaSwitcher client:load>
-            <Icon slot="icon" name="areaSwith"></Image>
-            <div slot="areaList">{areas.map((area)=> area.link !== logoLink && <MainLogo logoLink={area.link} logoArea={area.name}></MainLogo>)}</div>
-        </AreaSwitcher>
+        <MainLogo logoLink={logoLink} logoArea={logoArea} />
+        <AreaSwitcher  logoLink={logoLink} logoArea={logoArea} />
     </div>
     <div class="mainMenu__content">
         <slot name="menuContent"></slot>
     </div>
     <div class="mainMenu__end">
-        <ButtonVue color="accent" text="Текст кнопки"> <Icon name="feather/star" /> </ButtonVue>
+        <Callback></Callback>
     </div>
 </nav>

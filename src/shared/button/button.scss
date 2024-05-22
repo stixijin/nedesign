@@ -26,16 +26,25 @@
     width: auto;
 }
 
+.button__icon svg {
+    height: 1.25em;
+    width: auto;
+}
+
 .button_size_xs {
     font-size: 12px;
     line-height: 125%;
 }
-.button_size_md {
+.button_size_sm {
     font-size: 16px;
     line-height: 125%;
 }
+.button_size_md {
+    font-size: px;
+    line-height: 125%;
+}
 .button_size_xl {
-    font-size: 20px;
+    font-size: 24px;
     line-height: 125%;
 }
 
@@ -131,15 +140,111 @@
     }
     .button_color_white.button_type_border:hover {
         background: transparent;
-        outline: 1px solid $dark_primary90;
-        color: $dark_primary90;
-    }
-    .button_color_white.button_type_border:active {
-        background: transparent;
         outline: 1px solid $dark_primary80;
         color: $dark_primary80;
     }
+    .button_color_white.button_type_border:active {
+        background: transparent;
+        outline: 1px solid $dark_primary60;
+        color: $dark_primary60;
+    }
+
+    .button_color_error.button_type_filled {
+        background: $dark_error50;
+        outline: 1px solid $dark_error40;
+        color: $dark_error90;
+    }
+    .button_color_error.button_type_filled:hover {
+        background: $dark_error40;
+        outline: 1px solid $dark_error30;
+        color: $dark_error90;
+    }
+    .button_color_error.button_type_filled:active {
+        background: $dark_error30;
+        outline: 1px solid $dark_error30;
+        color: $dark_error90;
+    }
     
+    .button_color_error.button_type_border {
+        background: transparent;
+        outline: 1px solid $dark_error50;
+        color: $dark_error50;
+    }
+    .button_color_error.button_type_border:hover {
+        background: transparent;
+        outline: 1px solid $dark_error40;
+        color: $dark_error40;
+    }
+    .button_color_error.button_type_border:active {
+        background: transparent;
+        outline: 1px solid $dark_error30;
+        color: $dark_error30;
+    }
+
+    .button_color_succes.button_type_filled {
+        background: $dark_succes50;
+        outline: 1px solid $dark_succes40;
+        color: $dark_succes90;
+    }
+    .button_color_succes.button_type_filled:hover {
+        background: $dark_succes40;
+        outline: 1px solid $dark_succes30;
+        color: $dark_succes90;
+    }
+    .button_color_succes.button_type_filled:active {
+        background: $dark_succes30;
+        outline: 1px solid $dark_succes30;
+        color: $dark_succes90;
+    }
+    
+    .button_color_succes.button_type_border {
+        background: transparent;
+        outline: 1px solid $dark_succes50;
+        color: $dark_succes50;
+    }
+    .button_color_succes.button_type_border:hover {
+        background: transparent;
+        outline: 1px solid $dark_succes40;
+        color: $dark_succes40;
+    }
+    .button_color_succes.button_type_border:active {
+        background: transparent;
+        outline: 1px solid $dark_succes30;
+        color: $dark_succes30;
+    }
+
+
+    .button_color_black.button_type_filled {
+        background: $dark_surface;
+        outline: 1px solid $dark_border;
+        color: $dark_gray100;
+    }
+    .button_color_black.button_type_filled:hover {
+        color: $dark_gray100;
+        background: $dark_surfaceHover;
+        outline: 1px solid $dark_borderHover;
+    }
+    .button_color_black.button_type_filled:active {
+        color: $dark_gray100;
+        background: $dark_surfaceActive;
+        outline: 1px solid $dark_borderActive;
+    }
+    
+    .button_color_black.button_type_border {
+        background: $dark_surface;
+        outline: 1px solid $dark_border;
+        color: $dark_gray100;
+    }
+    .button_color_black.button_type_border:hover {
+        color: $dark_gray100;
+        background: $dark_surfaceHover;
+        outline: 1px solid $dark_borderHover;
+    }
+    .button_color_black.button_type_border:active {
+        color: $dark_gray100;
+        background: $dark_surfaceActive;
+        outline: 1px solid $dark_borderActive;
+    }
 
 
 }

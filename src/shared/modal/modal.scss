@@ -1,0 +1,39 @@
+@import "#tokens/main";
+
+.modal {
+    position: fixed;
+    z-index: 100;
+    top: 16px;
+    left: 300px;
+    display: flex;
+    gap: $offset50;
+}
+
+.modal__window {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: $offset50;
+    border-radius: $mainBR;
+    width: 340px;
+}
+
+.overlay {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $overlay;
+    height: 100vh;
+    width: 100vw;
+    top: -12px;
+    left: -12px;
+}
+
+
+.dark {
+    .modal__window {
+        background: $dark_surface;
+        outline: 1px solid $dark_border;
+    }
+}

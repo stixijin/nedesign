@@ -5,7 +5,6 @@ $dark_surface30: hsla(240, 9%, 17%, 0.96);
 $dark_surface40: hsla(240, 7%, 22%, 0.96);
 $dark_surface50: hsla(240, 11%, 28%, 0.96);
 
-
 $dark_gray0: hsla(0, 0%, 5%, 100);
 $dark_gray10: hsla(240, 3%, 11%, 100);
 $dark_gray20: hsla(240, 2%, 18%, 100);
@@ -17,10 +16,6 @@ $dark_gray70: hsla(240, 3%, 69%, 100);
 $dark_gray80: hsla(240, 6%, 83%, 100);
 $dark_gray90: hsla(240, 24%, 69%, 100);
 $dark_gray100: hsla(0, 0%, 100%, 100);
-
-$white: $dark_gray100;
-$black: $dark_gray0;
-
 
 $dark_accent0:hsl(21.8,100%,2.2%);
 $dark_accent10:hsl(19.5,100%,25.3%);
@@ -46,6 +41,37 @@ $dark_primary80:hsl(237.2,100%,87.5%);
 $dark_primary90:hsl(240,100%,93.9%);
 $dark_primary100:hsl(247.5,100%,96.9%);
 
+$dark_error0:hsl(240,100%,2.4%);
+$dark_error10:hsl(358.2,100%,12.7%);
+$dark_error20:hsl(357.1,100%,20.6%);
+$dark_error30:hsl(355.9,100%,28.8%);
+$dark_error40:hsl(0,75.5%,41.6%);
+$dark_error50:hsl(2.4,72.5%,52.9%);
+$dark_error60:hsl(3.6,100%,64.3%);
+$dark_error70:hsl(5.5,100%,74.5%);
+$dark_error80:hsl(6.4,100%,83.5%);
+$dark_error90:hsl(5.9,100%,92%);
+$dark_error95:hsl(8.6,100%,95.9%);
+$dark_error100:hsl(0,0%,100%);
+
+$dark_succes0:hsl(122.9,100%,2%);
+$dark_succes10:hsl(122.9,100%,4.1%);
+$dark_succes20:hsl(127.4,100%,11.2%);
+$dark_succes30:hsl(130.1,100%,16.3%);
+$dark_succes40:hsl(132.5,100%,21.6%);
+$dark_succes50:hsl(133.5,100%,27.1%);
+$dark_succes60:hsl(124,56.6%,41.6%);
+$dark_succes70:hsl(121,49%,53.1%);
+$dark_succes80:hsl(118.5,65.2%,63.9%);
+$dark_succes90:hsl(117.1,95.4%,74.5%);
+$dark_succes95:hsl(109.8,100%,87.3%);
+$dark_succes100:hsl(0,0%,100%);
+
+$overlay: hsla(240, 16%, 8%, 0.72);
+
+$white: $dark_gray100;
+$black: $dark_gray0;
+
 $dark_surface: $dark_surface20;
 $dark_border: $dark_surface30;
 $dark_surfaceHover: $dark_surface30;
@@ -54,6 +80,8 @@ $dark_surfaceActive: $dark_surface40;
 $dark_borderActive: $dark_surface50;
 
 $dark_text: $dark_gray100
+
+
 
 
 

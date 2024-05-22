@@ -1,58 +1,7 @@
 @import '#tokens/main';
 
-
-.areaSwitcher {
-    padding: $offset50;
-    border-radius: $mainBR;
-    display: flex;
-    cursor: pointer;
-    transition: 0.3s;
-    height: fit-content;
-}
-
 .areaList {
     display: flex;
     flex-direction: column;
-    box-sizing: border-box;
-    position: fixed;
-    z-index: 100;
-    top: 16px;
-    left: 364px;
-    width: 340px;
-    padding: $offset50;
-    border-radius: $mainBR;
-}
-
-.areaList .mainLogo:not(:first-of-type) {
-    margin-top: $offset20;
-}
-
-.dark {
-
-    .areaList {
-        background: $dark_surface;
-        outline: 1px solid $dark_border;
-    }
-
-    .areaSwitcher {
-        color: $dark_gray100;
-        background: $dark_surface;
-        outline: 1px solid $dark_border;
-    }
-    
-    .areaSwitcher:hover {
-        color: $dark_gray100;
-        background: $dark_surfaceHover;
-        outline: 1px solid $dark_borderHover;
-    }
-    .areaSwitcher:active {
-        color: $dark_gray100;
-        background: $dark_surfaceActive;
-        outline: 1px solid $dark_borderActive;
-    }
-    .areaSwitcher svg {
-        height: 32px;
-        width: 32px;
-    }
-    
+    gap: $offset50;
 }

@@ -1,0 +1,21 @@
+---
+import "./areaSwitcher.scss";
+import Modal from "#shared/modal/modal.vue";
+import areas from "#app/area/areas.json";
+import MainLogo from "#entities/mainLogo/ui/mainLogo.astro";
+
+const { logoArea, logoLink } = Astro.props;
+---
+
+<Modal client:load buttonSize="xl" buttonColor="black" buttonIcon="area">
+    <div class="areaList">
+        {
+            areas.map(
+                (area) =>
+                    area.link !== logoLink && (
+                        <MainLogo logoLink={area.link} logoArea={area.name} />
+                    ),
+            )
+        }
+    </div>
+</Modal>

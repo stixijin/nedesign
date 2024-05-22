@@ -2,38 +2,33 @@
 import "./button.scss";
 import { Icon } from 'astro-icon/components'
 
-interface Props {
-    text?: string;
-    color?: "primary" | "accent" | "white";
-    type?: "filled" | "border";
-    size?: "xs" | "md" | "xl";
-    icon?: string;
-    iconSide?: "left" | "right" | "left-right";
-}
+import type inteface from "./interface";
 
-var {color, type, size, icon, text, iconSide} = Astro.props;
+type Props = inteface;
 
-var buttonColor ="button_color_primary";
-if(color) buttonColor = "button_color_" + color;
+var {buttonColor, buttonType, buttonSize, buttonIcon, buttonText, buttonIconSide} = Astro.props;
 
-var buttonSize ="button_size_md";
-if(size) buttonSize = "button_size_" + size;
+var color ="button_color_primary";
+if(buttonColor) buttonColor = "button_color_" + color;
 
-var buttonType ="button_type_filled";
-if(type) buttonType = "button_type_" + type;
+var size ="button_size_md";
+if(buttonSize) buttonSize = "button_size_" + size;
 
-if(!text && !icon) text = "text && icon";
+var type ="button_type_filled";
+if(buttonType) buttonType = "button_type_" + type;
+
+if(!buttonText && !buttonIcon) buttonText = "text && icon";
 
 
 
 ---
 
 
-<button class:list={['button', buttonColor, buttonType, buttonSize]}>
-    {icon && !iconSide && <Icon class="button__icon" name={icon}/>}
-    {icon && iconSide == "left" && <Icon class="button__icon" name={icon}/>}
-    {icon && iconSide == "left-right" && <Icon class="button__icon" name={icon}/>}
-    {text && <span class="button__text">{text}</span>}
-    {icon && iconSide == "right" && <Icon class="button__icon" name={icon}/>}
-    {icon && iconSide == "left-right" && <Icon class="button__icon" name={icon}/>}
+<button class:list={['button', size, type, size]}>
+    {buttonIcon && !buttonIconSide && <Icon class="button__icon" name={buttonIcon}/>}
+    {buttonIcon && buttonIconSide == "left" && <Icon class="button__icon" name={buttonIcon}/>}
+    {buttonIcon && buttonIconSide == "left-right" && <Icon class="button__icon" name={buttonIcon}/>}
+    {buttonText && <span class="button__text">{buttonText}</span>}
+    {buttonIcon && buttonIconSide == "right" && <Icon class="button__icon" name={buttonIcon}/>}
+    {buttonIcon && buttonIconSide == "left-right" && <Icon class="button__icon" name={buttonIcon}/>}
 </button>
