@@ -3,7 +3,7 @@
 
 .menuItem {
     display: flex;
-    border-radius: $border-radius40;
+    border-radius: $border-radius30;
     width: 100%;
     height: fit-content;
     gap: $offset40;
@@ -24,27 +24,27 @@
 .dark {
     .menuItem {
         color: $dark_text;
-        border: 1px solid transparent;
+        outline: 1px solid transparent;
         transition: 0.3s;
     }
     .selected {
         background: $dark_accent40;
-        border: 1px solid $dark_accent30
+        outline: 1px solid $dark_accent30
     }
     .menuItem:hover {
         background: $dark_surface30;
-        border: 1px solid $dark_surface40;
+        outline: 1px solid $dark_surface40;
     }
     .selected:hover {
         background: $dark_accent40;
-        border: 1px solid $dark_accent20
+        outline: 1px solid $dark_accent20
     }
     .menuItem:active {
         background: $dark_surface40;
-        border: 1px solid $dark_surface40;
+        outline: 1px solid $dark_surface40;
     }
     .selected:active {
         background: $dark_accent40;
-        border: 1px solid $dark_accent20
+        outline: 1px solid $dark_accent20
     }
 }

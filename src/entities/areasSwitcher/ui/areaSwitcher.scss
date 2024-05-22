@@ -31,24 +31,24 @@
 
     .areaList {
         background: $dark_surface;
-        border: 1px solid $dark_border;
+        outline: 1px solid $dark_border;
     }
 
     .areaSwitcher {
         color: $dark_gray100;
         background: $dark_surface;
-        border: 1px solid $dark_border;
+        outline: 1px solid $dark_border;
     }
     
     .areaSwitcher:hover {
         color: $dark_gray100;
         background: $dark_surfaceHover;
-        border: 1px solid $dark_borderHover;
+        outline: 1px solid $dark_borderHover;
     }
     .areaSwitcher:active {
         color: $dark_gray100;
         background: $dark_surfaceActive;
-        border: 1px solid $dark_borderActive;
+        outline: 1px solid $dark_borderActive;
     }
     .areaSwitcher img {
         height: 32px;

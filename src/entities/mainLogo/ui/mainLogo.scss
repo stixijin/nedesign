@@ -33,19 +33,19 @@
     .mainLogo {
         color: $dark_gray100;
         background: $dark_surface;
-        border: 1px solid $dark_border;
+        outline: 1px solid $dark_border;
         transition: 0.3s;
     }
     
     .mainLogo:hover {
         color: $dark_gray100;
         background: $dark_surfaceHover;
-        border: 1px solid $dark_borderHover;
+        outline: 1px solid $dark_borderHover;
     }
     .mainLogo:active {
         color: $dark_gray100;
         background: $dark_surfaceActive;
-        border: 1px solid $dark_borderActive;
+        outline: 1px solid $dark_borderActive;
     }
 }
 
