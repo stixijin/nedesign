@@ -20,6 +20,7 @@
     "@astrojs/vue": "^4.2.0",
     "astro": "^4.8.5",
     "astro-feather": "^1.0.0",
+    "astro-icon": "^1.1.0",
     "sharp": "^0.33.4",
     "vue": "^3.4.27"
   }
