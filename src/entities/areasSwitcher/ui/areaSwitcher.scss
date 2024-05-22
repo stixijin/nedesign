@@ -50,13 +50,9 @@
         background: $dark_surfaceActive;
         outline: 1px solid $dark_borderActive;
     }
-    .areaSwitcher img {
+    .areaSwitcher svg {
         height: 32px;
         width: 32px;
-        filter: invert(100%);
     }
-/*     img path {
-        fill: $dark_gray100;
-    } */
     
 }

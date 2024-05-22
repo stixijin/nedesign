@@ -2,12 +2,14 @@
 import MainLogo from "#entities/mainLogo/ui/mainLogo.astro";
 import AreaSwitcher from "#entities/areasSwitcher/ui/areaSwitcher.vue";
 import './mainMenu.scss';
-import Button from '#shared/button/button.astro'
+import Button from '#shared/button/button.astro';
+import ButtonVue from '#shared/button/button.vue';
+import Callback from "#features/callback/ui/callback.vue";
 
 
 import {Image} from "astro:assets";
 
-import Icon from "#shared/icons/areaSwith.svg";
+import { Icon } from 'astro-icon/components'
 
 
 import areas from "#app/area/areas.json";
@@ -19,7 +21,7 @@ const { logoArea, logoLink} = Astro.props;
     <div class="mainMenu__logo">
         <MainLogo logoLink={logoLink} logoArea={logoArea}></MainLogo>
         <AreaSwitcher client:load>
-            <Image  slot="icon" src={Icon} alt="Иконка"></Image>
+            <Icon slot="icon" name="areaSwith"></Image>
             <div slot="areaList">{areas.map((area)=> area.link !== logoLink && <MainLogo logoLink={area.link} logoArea={area.name}></MainLogo>)}</div>
         </AreaSwitcher>
     </div>
@@ -27,6 +29,6 @@ const { logoArea, logoLink} = Astro.props;
         <slot name="menuContent"></slot>
     </div>
     <div class="mainMenu__end">
-        <Button size="md" type="filled" color="white" text="Связаться"/>
+        <ButtonVue color="accent" text="Текст кнопки"> <Icon name="feather/star" /> </ButtonVue>
     </div>
 </nav>
