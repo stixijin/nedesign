@@ -12,11 +12,17 @@
 
 .mainMenu__logo {
     display: flex;
-    gap: $offset20;
+    gap: $offset40;
     position: relative;
     align-items: center;
 }
 
 .mainMenu__content {
     height: 100%;
+}
+
+.mainMenu__end {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }

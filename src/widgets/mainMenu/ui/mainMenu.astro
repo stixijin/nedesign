@@ -2,6 +2,8 @@
 import MainLogo from "../../../entities/mainLogo/ui/mainLogo.astro";
 import AreaSwitcher from "../../../entities/areasSwitcher/ui/areaSwitcher.vue";
 import './mainMenu.scss';
+import Button from '../../../shared/button/button.astro'
+
 
 import {Image} from "astro:assets";
 
@@ -11,14 +13,9 @@ import Icon from "../../../shared/icons/areaSwith.svg";
 import areas from "../../../app/area/areas.json";
 const { logoArea, logoLink} = Astro.props;
 
-
-
 ---
 
 <nav class="mainMenu">
-    
-
-
     <div class="mainMenu__logo">
         <MainLogo logoLink={logoLink} logoArea={logoArea}></MainLogo>
         <AreaSwitcher client:load>
@@ -30,6 +27,6 @@ const { logoArea, logoLink} = Astro.props;
         <slot name="menuContent"></slot>
     </div>
     <div class="mainMenu__end">
-        <slot name="menuEnd"></slot>
+        <Button size="md" type="filled" color="white" text="Связаться"/>
     </div>
 </nav>
