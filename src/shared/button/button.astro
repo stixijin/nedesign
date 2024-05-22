@@ -1,0 +1,39 @@
+---
+import "./button.scss";
+import { Icon } from 'astro-icon/components'
+
+interface Props {
+    text?: string;
+    color?: "primary" | "accent" | "white";
+    type?: "filled" | "border";
+    size?: "xs" | "md" | "xl";
+    icon?: string;
+    iconSide?: "left" | "right" | "left-right";
+}
+
+var {color, type, size, icon, text, iconSide} = Astro.props;
+
+var buttonColor ="button_color_primary";
+if(color) buttonColor = "button_color_" + color;
+
+var buttonSize ="button_size_md";
+if(size) buttonSize = "button_size_" + size;
+
+var buttonType ="button_type_filled";
+if(type) buttonType = "button_type_" + type;
+
+if(!text && !icon) text = "text && icon";
+
+
+
+---
+
+
+<button class:list={['button', buttonColor, buttonType, buttonSize]}>
+    {icon && !iconSide && <Icon class="button__icon" name={icon}/>}
+    {icon && iconSide == "left" && <Icon class="button__icon" name={icon}/>}
+    {icon && iconSide == "left-right" && <Icon class="button__icon" name={icon}/>}
+    {text && <span class="button__text">{text}</span>}
+    {icon && iconSide == "right" && <Icon class="button__icon" name={icon}/>}
+    {icon && iconSide == "left-right" && <Icon class="button__icon" name={icon}/>}
+</button>
