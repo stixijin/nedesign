@@ -1,9 +1,9 @@
 ---
 import { getCollection } from "astro:content";
-import App from '../app/app.astro';
-import BlogPost from '../entities/articleCard/ui/articleCard.astro';
+import App from '#app/app.astro';
+import BlogPost from '#entities/articleCard/ui/articleCard.astro';
 const allPosts = await getCollection("posts");
-import Tags from "../entities/tags/ui/Tags.astro";
+import Tags from "#entities/tags/ui/Tags.astro";
 const pageTitle = "Блог";
 ---
 
