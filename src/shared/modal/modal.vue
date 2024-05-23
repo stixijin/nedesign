@@ -60,12 +60,12 @@ const openWindow = ref(false);
 <Button
     @keyup.esc="closeModal" 
     @click="openModal" 
-    :buttonSize="resultButtonSize" 
-    :buttonColor="resultButtonColor"
-    :buttonType="resultButtonType"
-    :buttonIcon="resultButtonIcon"
-    :buttonIconSide="resultButtonIconSide"
-    :buttonText="resultButtonText"
+    :buttonSize="buttonSize" 
+    :buttonColor="buttonColor"
+    :buttonType="buttonType"
+    :buttonIcon="buttonIcon"
+    :buttonIconSide="buttonIconSide"
+    :buttonText="buttonText"
 ></Button>
 
 <transition name="fade">
