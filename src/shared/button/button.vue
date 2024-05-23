@@ -1,21 +1,24 @@
 
 
 <script lang="ts" setup>
-    import type inteface from "./interface";
+    import type buttonInterface from "./interface";
     import "./button.scss";
     import Icon from "#shared/icons/icon.vue";
     
-    const props = defineProps<inteface>()
+    const props = withDefaults(defineProps<buttonInterface>(), {
+        buttonColor: 'primary',
+        buttonType: 'filled',
+        buttonSize: 'sm',
+        buttonIcon: undefined,
+        buttonIconSide: undefined,
+        buttonText: undefined
+})
 
+    const buttonColor = "button_color_" + props.buttonColor;
 
-    var buttonColor ="button_color_primary";
-    if(props.buttonColor) buttonColor = "button_color_" + props.buttonColor;
+    const buttonType = "button_type_" + props.buttonType;
 
-    var buttonType ="button_type_filled";
-    if(props.buttonType) buttonType = "button_type_" + props.buttonType;
-
-    var buttonSize ="button_size_sm";
-    if(props.buttonSize) buttonSize = "button_size_" + props.buttonSize;
+    const buttonSize = "button_size_" + props.buttonSize;
 
 
 
