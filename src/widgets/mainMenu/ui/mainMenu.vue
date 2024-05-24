@@ -23,15 +23,15 @@ const props = defineProps({
     <nav class="mainMenu">
         <div class="mainMenu__logo">
             <MainLogo :currentLink='currentLink' :logoLink='logoLink' :logoArea='logoArea' />
-            <AreaSwitcher :logoLink='logoLink' client:load />
+            <AreaSwitcher :logoLink='logoLink'/>
         </div>
         <div class="mainMenu__content">
             <slot name="menuContent"></slot>
         </div>
         <div class="mainMenu__end">
-            <Modal closePos="top-left" name="callback" client:load>
+            <Modal closePos="top-left" name="callback">
                 <template v-slot:action>
-                <Button buttonColor="primary" buttonText="Обратная связь"></Button>
+                    <Button buttonColor="primary" buttonText="Обратная связь"></Button>
                 </template>
                 
                 <template v-slot:body>
