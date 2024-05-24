@@ -13,7 +13,6 @@
     const closePos = "modal_close_" + props.closePos;
 
 
-
 </script>
 
 
@@ -22,15 +21,19 @@
     export default {
         data() {
             return {
-                modalState: false
+                modalState: false,
+                color: 'red'
             }
         },
         methods: {
             openModal(){
-                this.modalState = true
+                this.modalState = true;
+                document.body.classList.add('scroll_fixed');
+
             },
             closeModal(){
                 this.modalState = false;
+                document.body.classList.remove('scroll_fixed')
             },
         }
     };
@@ -65,7 +68,7 @@
 </template>
 
 
-<style>
+<style :global lang="scss">
     .fade-enter-active,
     .fade-leave-active {
     transition: opacity 0.5s ease;
@@ -75,4 +78,5 @@
     .fade-leave-to {
     opacity: 0;
     }
+
 </style>
