@@ -54,6 +54,11 @@
         background: $dark_surfaceActive;
         outline: 1px solid $dark_borderActive;
     }
+    .mainLogo_noHover:active {
+        color: $dark_gray100;
+        background: $dark_surface;
+        outline: 1px solid $dark_border;
+    }
 }
 
 
