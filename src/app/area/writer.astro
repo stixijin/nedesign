@@ -14,7 +14,7 @@ const title = areaTitle + "  |  " + pageTitle;
 
 <App pageTitle={title} bgImg={bgArea}>
     <div class="container">
-        <MainMenu logoArea={areaTitle} logoLink={areaLink}>
+        <MainMenu client:load logoArea={areaTitle} logoLink={areaLink}>
             <div slot="menuContent">
                 <MenuGroup>
                     <MenuItem href={areaLink} icon="feather/home" text="Главная" />
