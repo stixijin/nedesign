@@ -50,6 +50,7 @@
 
 
 .dark {
+
     .button_color_primary.button_type_filled {
         background: $dark_primary30;
         outline: 1px solid $dark_primary20;
@@ -109,6 +110,9 @@
         background: transparent;
         outline: 1px solid $dark_accent30;
         color: $dark_accent30;
+    }
+    .button_color_accent.button_type_border:focus {
+        outline: 1px solid $dark_borderFocusAlt;
     }
     .button_color_accent.button_type_border:active {
         background: transparent;
@@ -244,6 +248,12 @@
         color: $dark_gray100;
         background: $dark_surfaceActive;
         outline: 1px solid $dark_borderActive;
+    }
+
+
+
+    .button:focus {
+        outline: 1px solid $dark_borderFocus;
     }
 
 

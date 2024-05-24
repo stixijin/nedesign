@@ -7,6 +7,21 @@
     gap: $offset50;
 }
 
+.modal_close_left-top {
+    flex-direction: row;
+}
+.modal_close_left-bot {
+    flex-direction: row;
+    align-items: flex-end;
+}
+.modal_close_top-right {
+    flex-direction: column;
+    align-items: flex-end;
+}
+.modal_close_top-left {
+    flex-direction: column;
+}
+
 .modal__window {
     display: flex;
     flex-direction: column;
@@ -30,9 +45,12 @@
 }
 
 .modalContainer {
-    position: absolute;
+    position: fixed;
     top:0;
     left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
 }
 
 .modal__btnClose {
@@ -71,6 +89,9 @@
         color: $dark_gray100;
         background: $dark_surfaceHover;
         outline: 1px solid $dark_borderHover;
+    }
+    .modal__btnClose:focus {
+        outline: 1px solid $dark_borderFocus;
     }
     .modal__btnClose:active {
         color: $dark_gray100;

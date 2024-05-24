@@ -3,6 +3,17 @@
     import { ref } from 'vue';
     import Icon from "#tokens/icons/icon.vue";
 
+    const props = defineProps({
+        name: String,
+        closePos: String
+    })
+
+
+    const nameModal = "modal__" + props.name;
+    const closePos = "modal_close_" + props.closePos;
+
+
+
 </script>
 
 
@@ -37,7 +48,8 @@
 
 <transition name="fade">
     <div v-if="modalState" class="modalContainer">
-        <div class="modal">
+        <div @click="closeModal" class="overlay"></div>
+        <div :class="nameModal, closePos" class="modal">
             <div class="modal__nav">
                 <button  @click="closeModal" class="modal__btnClose"><Icon name="feather/x"></Icon></Button>
             </div>
@@ -45,7 +57,7 @@
                 <slot name="body"></slot>
             </div>
         </div>
-        <div @click="closeModal" class="overlay"></div>
+        
     </div>
 
 </transition>

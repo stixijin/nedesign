@@ -35,6 +35,9 @@
         background: $dark_surface30;
         outline: 1px solid $dark_surface40;
     }
+    .menuItem:focus {
+        outline: 1px solid $dark_borderFocus;
+    }
     .selected:hover {
         background: $dark_accent40;
         outline: 1px solid $dark_accent20

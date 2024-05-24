@@ -29,9 +29,9 @@ const props = defineProps({
             <slot name="menuContent"></slot>
         </div>
         <div class="mainMenu__end">
-            <Modal client:load>
+            <Modal closePos="left-bot" name="callback" client:load>
                 <template v-slot:action>
-                <Button buttonText="Обратная связь"></Button>
+                <Button buttonColor="accent" buttonText="Обратная связь"></Button>
                 </template>
                 
                 <template v-slot:body>

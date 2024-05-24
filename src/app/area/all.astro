@@ -10,6 +10,7 @@ const {pageTitle} = Astro.props;
 const bgArea = '/bgArea_dark.jpg';
 const areaTitle = 'Все сферы';
 const logoName = 'logo/designer'
+const currentLink = Astro.url.pathname;
 
 const areaLink = "/";
 
@@ -20,7 +21,7 @@ const title = areaTitle +  '  |  ' + pageTitle;
 
 <App pageTitle={title} bgImg={bgArea}>
     <div class="container">
-            <MainMenu client:load logoArea={areaTitle} logoLink={areaLink}>
+            <MainMenu client:load currentLink={currentLink} logoArea={areaTitle} logoLink={areaLink}>
                 <div slot="menuContent">
                     <MenuGroup>
                         <MenuItem href={areaLink} icon="feather/home" text="Главная" />

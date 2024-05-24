@@ -11,14 +11,16 @@ const props = defineProps({
 })
 
 let href = props.logoLink;
+let noHover = undefined;
 
 if(props.logoLink == props.currentLink) {
-    href = ''
+    href = undefined
+    noHover = 'mainLogo_noHover'
 }
 
 </script>
 <template>
-    <a :href="href" class="mainLogo">
+    <a :href="href" class="mainLogo" :class="noHover">
         <template v-for="area in areas">
             <Icon v-if="props.logoLink === area.link" :name="area.logo"/>
         </template>

@@ -35,12 +35,19 @@
         background: $dark_surface;
         outline: 1px solid $dark_border;
         transition: 0.3s;
-    }
-    
+    }    
     .mainLogo:hover {
         color: $dark_gray100;
         background: $dark_surfaceHover;
         outline: 1px solid $dark_borderHover;
+    }
+    .mainLogo:focus {
+        outline: 1px solid $dark_borderFocus;
+    }
+    .mainLogo_noHover:hover {
+        color: $dark_gray100;
+        background: $dark_surface;
+        outline: 1px solid $dark_border;
     }
     .mainLogo:active {
         color: $dark_gray100;
