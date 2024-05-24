@@ -2,21 +2,21 @@
     {
         "area": "all",
         "name": "Все сферы",
-        "logo": "main",
+        "logo": "logo/designer",
         "link": "/",
         "bgImg": "/bgArea_dark.jpg"
     },
     {
         "area": "designer",
         "name": "Продуктовый дизайнер",
-        "logo": "main",
+        "logo": "logo/designer",
         "link": "/designer",
         "bgImg": "/bgBooks_dark.jpg"
     },
     {
         "area": "writer",
         "name": "Писатель / Сценарист",
-        "logo": "main",
+        "logo": "logo/writer",
         "link": "/writer",
         "bgImg": "/bgBooks_dark.jpg"
     }

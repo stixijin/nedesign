@@ -1,35 +1,7 @@
-
-
-
-
-
-
 <script lang="ts" setup>
-import "./modal.scss";
-import { ref } from 'vue';
-import Button from "#shared/button/button.vue";
-
-import type interfaceButton from '../button/interface'
-
-interface interfaceModal extends interfaceButton {
-
-}
-
-const props = withDefaults(defineProps<interfaceModal>(), {
-    buttonColor: 'primary',
-    ButtonType: 'filled',
-    buttonSize: 'sm',
-    buttonIcon: undefined,
-    buttonIconSide: undefined,
-    buttonText: undefined
-})
-
-
-
-
-const openWindow = ref(false);
-
-
+    import "./modal.scss";
+    import { ref } from 'vue';
+    import Icon from "#tokens/icons/icon.vue";
 
 </script>
 
@@ -49,36 +21,33 @@ const openWindow = ref(false);
             closeModal(){
                 this.modalState = false;
             },
-        },
+        }
     };
 
 </script>
 
 <template>
-
-
-<Button
-    @keyup.esc="closeModal" 
-    @click="openModal" 
-    :buttonSize="buttonSize" 
-    :buttonColor="buttonColor"
-    :buttonType="buttonType"
-    :buttonIcon="buttonIcon"
-    :buttonIconSide="buttonIconSide"
-    :buttonText="buttonText"
-></Button>
+    <div
+        @keyup.esc="closeModal" 
+        @click="openModal" 
+    >
+    <slot name="action"></slot>
+    
+    </div>
 
 <transition name="fade">
-<div @click="closeModal" v-if="modalState" class="overlay">
-    <div class="modal">
-        <div class="modal__nav">
-            <Button  @click="closeModal" buttonSize="xl"  buttonType="border" buttonColor="black" buttonIconSide="left" buttonIcon="feather/x"></Button>
+    <div v-if="modalState" class="modalContainer">
+        <div class="modal">
+            <div class="modal__nav">
+                <button  @click="closeModal" class="modal__btnClose"><Icon name="feather/x"></Icon></Button>
+            </div>
+            <div class="modal__window" >
+                <slot name="body"></slot>
+            </div>
         </div>
-        <div class="modal__window" >
-            <slot></slot>
-        </div>
+        <div @click="closeModal" class="overlay"></div>
     </div>
-</div>
+
 </transition>
 
 </template>

@@ -11,6 +11,7 @@
 }
 
 .mainMenu__logo {
+    position: relative;
     display: flex;
     gap: $offset40;
     position: relative;
@@ -22,6 +23,7 @@
 }
 
 .mainMenu__end {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 8px;

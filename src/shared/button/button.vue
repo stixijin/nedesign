@@ -3,14 +3,14 @@
 <script lang="ts" setup>
     import type buttonInterface from "./interface";
     import "./button.scss";
-    import Icon from "#shared/icons/icon.vue";
+    import Icon from "#tokens/icons/icon.vue";
     
     const props = withDefaults(defineProps<buttonInterface>(), {
         buttonColor: 'primary',
         buttonType: 'filled',
         buttonSize: 'sm',
         buttonIcon: undefined,
-        buttonIconSide: undefined,
+        buttonIconSide: "left",
         buttonText: undefined
 })
 

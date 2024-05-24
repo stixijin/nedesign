@@ -12,7 +12,7 @@ export default defineConfig({
     integrations: [
       vue(),
       icon({
-        iconDir: "src/shared/icons/",
+        iconDir: "src/tokens/icons/",
       })
     ]
   });
