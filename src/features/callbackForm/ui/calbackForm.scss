@@ -1,1 +1,13 @@
-@import "../../../tokens/main.scss";
+@import "#tokens/main.scss";
+
+.form__body {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}

@@ -29,7 +29,11 @@
 }
 
 .modal__callback {
-    align-self: flex-end;
-    left: 298px;
-    bottom: 32px;
+    align-self: center;
+    justify-self: center;
+}
+
+.modal__callback .modal__window {
+    padding: 24px;
+    width: 380px;
 }

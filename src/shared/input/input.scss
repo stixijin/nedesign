@@ -1,0 +1,18 @@
+@import '#tokens/main';
+
+
+.input {
+    padding: 16px;
+    border-radius: $mainBR;
+}
+
+.dark {
+    .input {
+        background: $dark_accent100;
+        border: none
+    }
+    .input__label {
+        color: $dark_accent100;
+    }
+}
+
