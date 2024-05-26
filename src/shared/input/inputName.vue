@@ -11,7 +11,7 @@
         'updateValue',
     ]);
 
-    const inputValue = ref('');
+    const inputValue = ref(props.modelValue);
 
 
     const updateValue = () => {
