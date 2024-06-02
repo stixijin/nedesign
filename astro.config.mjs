@@ -7,10 +7,9 @@ export default defineConfig({
     site: "https://nedesigner.ru",
     prefetch: {
       prefetchAll: true,
-      defaultStrategy: 'load',
     },
     integrations: [
-      vue(),
+      vue({ appEntrypoint: '/src/app/_main.ts' }),
       icon({
         iconDir: "src/tokens/icons/",
       })

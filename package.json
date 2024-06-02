@@ -21,6 +21,8 @@
   "dependencies": {
     "@astrojs/rss": "^4.0.5",
     "@astrojs/vue": "^4.2.0",
+    "@vuelidate/core": "^2.0.3",
+    "@vuelidate/validators": "^2.0.4",
     "astro": "^4.8.5",
     "astro-feather": "^1.0.0",
     "astro-icon": "^1.1.0",

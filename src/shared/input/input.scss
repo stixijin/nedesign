@@ -1,21 +1,56 @@
 @import '#tokens/main';
 
 
-.input {
+.input__field {
     padding: 16px;
     border-radius: $mainBR;
+    transition: 0.5s;
+    outline: 2px solid transparent;
+}
+
+.input {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.input__errors {
+    position: absolute;
+    bottom: 8px;
+    left: 100%;
+    margin-left: 8px;
+    width: 100%;
+    padding: $offset40;
+    border-radius: $border-radius40;
 }
 
 .dark {
-    .input {
+    .input__field {
         background: $dark_accent100;
         border: none
+    }
+    .input__field:focus {
+        background: $dark_accent100;
+        border: none;
+        outline: 2px solid $dark_accent40;
+    }
+    .input__field_error {
+        background: $dark_error95;
+        border: none;
+        outline: 2px solid $dark_error40;
+    }
+    .input__field_succesful {
+        background: $dark_succes99;
+        border: none;
+        outline: 2px solid $dark_succes40;
     }
     .input__label {
         color: $dark_accent100;
     }
-    .input__error-msg {
-        color: $dark_error40;
+    .input__errors {
+        color: $dark_error30;
+        background: $dark_error80;
     }
 }
 

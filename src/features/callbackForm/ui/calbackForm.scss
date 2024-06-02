@@ -11,3 +11,24 @@
     flex-direction: column;
     gap: 16px;
 }
+
+.form__action {
+    position: relative;
+    display: flex;
+}
+
+.form__result {
+    padding: $offset40;
+    left: 224px;
+    border-radius: 12px;
+}
+
+.form__result_error {
+    color: $dark_error30;
+    background: $dark_error80;
+}
+
+.form__result_succesful {
+    color: $dark_succes30;
+    background: $dark_succes80;
+}

@@ -1,41 +1,45 @@
 <script lang="ts" setup>
     import "./modal.scss";
-    import { ref } from 'vue';
+    import { ref, watch} from 'vue';
     import Icon from "#tokens/icons/icon.vue";
 
     const props = defineProps({
         name: String,
-        closePos: String
+        closePos: String,
+        modelValue: Boolean
     })
 
 
     const nameModal = "modal__" + props.name;
     const closePos = "modal_close_" + props.closePos;
 
+    let modalState = ref(props.modelValue);
 
-</script>
+    const openModal = () => {
+        modalState.value = true;
+        updateState();
+        document.body.classList.add('scroll_fixed');
+    }
+    
+    const closeModal = () => {
+        modalState.value = false;
+        updateState();
+        document.body.classList.remove('scroll_fixed');
+    }
 
+    const emits = defineEmits([
+      'updateState',
+    ]);
 
-<script lang="ts">
+    
+    const updateState = () => {
+      emits('updateState', modalState.value);
+    }
+    
+    watch(() => props.modelValue, (newValue) => {
+        modalState.value = newValue;
+    });
 
-    export default {
-        data() {
-            return {
-                modalState: false,
-            }
-        },
-        methods: {
-            openModal(){
-                this.modalState = true;
-                document.body.classList.add('scroll_fixed');
-
-            },
-            closeModal(){
-                this.modalState = false;
-                document.body.classList.remove('scroll_fixed')
-            },
-        }
-    };
 
 </script>
 
@@ -57,6 +61,7 @@
             </div>
             <div class="modal__window" >
                 <slot name="body"></slot>
+                <p class="test">{{ props.modelValue }}</p>
             </div>
         </div>
         
