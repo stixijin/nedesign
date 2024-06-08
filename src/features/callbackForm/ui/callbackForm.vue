@@ -68,7 +68,7 @@ const onSubmit = async function (v) {
   <div>
       <form v-show="formSubmittal !== 'succesful'" class="form" @submit.prevent="onSubmit(v$)">
         <div class="form__head">
-          <h1>Заполните форму</h1>
+          <h1 class="form__title">Заполните форму</h1>
         </div>
         <div class="form__body">
           <InputName @update:value="receiveName" placeholder="Например: Константин Константинович" name="name"
@@ -85,7 +85,7 @@ const onSubmit = async function (v) {
 
       <div v-show="formSubmittal == 'succesful'">
         <div class="form__result">
-          <h1>Форма успешно отправлена!</h1>
+          <h2 class="form__title">Форма успешно отправлена!</h2>
           <Icon name="succesfulSend"></Icon>
         </div>
       </div>
