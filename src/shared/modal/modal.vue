@@ -61,8 +61,8 @@
             </div>
             <div class="modal__window" >
                 <slot name="body"></slot>
-                <p class="test">{{ props.modelValue }}</p>
             </div>
+            <slot name="alerts"></slot>
         </div>
         
     </div>
@@ -70,17 +70,3 @@
 </transition>
 
 </template>
-
-
-<style>
-    .fade-enter-active,
-    .fade-leave-active {
-    transition: opacity 0.5s ease;
-    }
-
-    .fade-enter-from,
-    .fade-leave-to {
-    opacity: 0;
-    }
-
-</style>

@@ -5,6 +5,7 @@
     z-index: 100;
     display: flex;
     gap: $offset50;
+    width: 340px;
 }
 
 .modal_close_left-top {
@@ -22,13 +23,14 @@
     flex-direction: column;
 }
 
-.modal__window {
+.modal__window { 
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
     padding: $offset50;
     border-radius: $mainBR;
-    width: 340px;
+    width: 100%;
+    z-index: 100;
 }
 
 .overlay {

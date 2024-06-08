@@ -3,7 +3,7 @@ import { ref, computed } from "vue";
 import "./input.scss"
 import type Interface from "./interface";
 import useVuelidate from "@vuelidate/core";
-import { required, minLength, helpers  } from '@vuelidate/validators';
+import { required, helpers  } from '@vuelidate/validators';
 
 const props = withDefaults(defineProps<Interface>(), {
 })
@@ -20,7 +20,7 @@ const updateValue = (e) => {
     emits('update:value', e.target.value);
 }
 
-
+const mask = helpers.regex(/@?\w{5,32}|https:\/\/t\.me\/\w{5,32}/g);
 
 // Валидация
 
@@ -29,7 +29,7 @@ let fieldValue = ref();
 const rules = computed(() => ({
     fieldValue: {
         required: helpers.withMessage('Это обязательное поле', required),
-        minLength: helpers.withMessage('Это поле должно содержать как минимум 3 символа', minLength(3))
+        mask: helpers.withMessage('Некорректный формат, пример: @username или https://t.me/username', mask),
     }
 }));
 

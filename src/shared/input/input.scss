@@ -12,45 +12,44 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 12px;
 }
 
 .input__errors {
-    position: absolute;
-    bottom: 8px;
-    left: 100%;
-    margin-left: 8px;
     width: 100%;
-    padding: $offset40;
-    border-radius: $border-radius40;
+    max-height: 24px;
+    margin-top: 10px;
+}
+
+.input__label {
+    margin-bottom: 12px;
 }
 
 .dark {
     .input__field {
-        background: $dark_accent100;
-        border: none
+        background: transparent;
+        outline: 1px solid $dark_gray70;
+        color: $dark_accent100;
+        font-size: 16px;
+        font-weight: 500;
+    }
+    .input__field::placeholder {
+        color: $dark_gray80;
+        font-size: 14px;
     }
     .input__field:focus {
-        background: $dark_accent100;
-        border: none;
-        outline: 2px solid $dark_accent40;
+        outline: 2px solid $dark_primary100;
     }
     .input__field_error {
-        background: $dark_error95;
-        border: none;
         outline: 2px solid $dark_error40;
     }
     .input__field_succesful {
-        background: $dark_succes99;
-        border: none;
-        outline: 2px solid $dark_succes40;
+        outline: 2px solid $dark_succes50;
     }
     .input__label {
         color: $dark_accent100;
     }
     .input__errors {
-        color: $dark_error30;
-        background: $dark_error80;
+        color: $dark_error50;
     }
 }
 

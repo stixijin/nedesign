@@ -37,3 +37,10 @@
     padding: 24px;
     width: 380px;
 }
+
+
+@media (max-width: 768px) {
+    .mainMenu {
+        display: none;
+    } 
+}

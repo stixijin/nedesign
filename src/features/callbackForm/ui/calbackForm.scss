@@ -9,26 +9,45 @@
 .form {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 24px;
 }
 
 .form__action {
-    position: relative;
     display: flex;
+    flex-direction: column;
 }
 
 .form__result {
     padding: $offset40;
-    left: 224px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     border-radius: 12px;
+    gap: 32px;
+    max-height: 295px;
 }
 
 .form__result_error {
-    color: $dark_error30;
-    background: $dark_error80;
+    color: $dark_error50;
 }
 
 .form__result_succesful {
-    color: $dark_succes30;
-    background: $dark_succes80;
+    color: $dark_succes50;
+}
+
+.alert {
+    color: $dark_error100;
+    background: $dark_error40;
+    padding: $offset50;
+    border-radius: $mainBR;
+    font-size: 14px;
+    position: absolute;
+    left: 36px;
+    width: 304px;
+    bottom: -64px;
+}
+
+.form__result svg {
+    height: 100%;
+    width: auto;
 }
