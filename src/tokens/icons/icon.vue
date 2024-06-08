@@ -10,26 +10,6 @@ const props = defineProps<{
 
 
 <template>
-    <svg v-if="props.name == 'feather/activity'" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-        stroke-linejoin="round" class="feather feather-activity">
-        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-    </svg>
-
-    <svg v-if="props.name == 'feather/airplay'" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-        stroke-linejoin="round" class="feather feather-airplay">
-        <path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path>
-        <polygon points="12 15 17 21 7 21 12 15"></polygon>
-    </svg>
-
-    <svg v-if="props.name == 'feather/x'" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-        class="feather feather-x">
-        <line x1="18" y1="6" x2="6" y2="18"></line>
-        <line x1="6" y1="6" x2="18" y2="18"></line>
-    </svg>
-
     <svg v-if="props.name == 'area'" width="24" height="24" viewBox="0 0 24 24" fill="none"
         xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x">
         <mask id="path-1-inside-1_59_1229" fill="white">

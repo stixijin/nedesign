@@ -26,8 +26,10 @@
     "astro": "^4.10.1",
     "astro-feather": "^1.0.0",
     "astro-icon": "^1.1.0",
+    "feather-icons": "^4.29.2",
     "sharp": "^0.33.4",
     "typescript": "^5.4.5",
-    "vue": "^3.4.27"
+    "vue": "^3.4.27",
+    "vue-feather": "^2.0.0"
   }
 }

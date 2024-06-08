@@ -1,7 +1,8 @@
 <script lang="ts" setup>
     import "./modal.scss";
     import { ref, watch} from 'vue';
-    import Icon from "#tokens/icons/icon.vue";
+    import FeatherIcon from 'vue-feather';
+
 
     const props = defineProps({
         name: String,
@@ -57,7 +58,7 @@
         <div @click="closeModal" class="overlay"></div>
         <div :class="nameModal, closePos" class="modal">
             <div class="modal__nav">
-                <button  @click="closeModal" class="modal__btnClose"><Icon name="feather/x"></Icon></Button>
+                <button  @click="closeModal" class="modal__btnClose"><feather-icon type="x" /></Button>
             </div>
             <div class="modal__window" >
                 <slot name="body"></slot>
