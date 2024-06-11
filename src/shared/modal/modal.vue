@@ -68,51 +68,29 @@ const props = withDefaults(defineProps<Props>(), {
 
 const currentName = props.name + '__modal';
 
-let currentMobileHeight = '';
-let currentMobileWidth = '';
-let currentMobileCloseSide = '';
-let currentMobileClosePosition = '';
-let currentMobilePositionX = ''
-let currentMobilePositionY = ''
-let currentDesctopBodyPadding = ''
-let currentMobileBodyPadding = ''
+const mobileClasses = computed(() => {
+    return {
+        modal_m_bodyPadding_false: !props.mobileBodyPadding,
+        [`modal_m_height_${props.mobileHeight}`]: props.mobile,
+        [`modal_m_width_${props.mobileWidth}`]: props.mobile,
+        [`modal_m_close_side_${props.mobileCloseSide}`]: props.mobile,
+        [`modal_m_close_pos_${props.mobileClosePosition}`]: props.mobile,
+        [`modal_m_posX_${props.mobilePositionX}`]: props.mobile,
+        [`modal_m_posY_${props.mobilePositionY}`]: props.mobile,
+    };
+});
 
-if(!props.desctopBodyPadding) {
-    currentMobileBodyPadding="modal_d_bodyPadding_false";
-}
-
-if(!props.mobileBodyPadding) {
-    currentMobileBodyPadding="modal_m_bodyPadding_false";
-}
-
-if (props.mobile) {
-    currentMobileHeight = "modal_m_height_" + props.mobileHeight;
-    currentMobileWidth = "modal_m_width_" + props.mobileWidth;
-    currentMobileCloseSide = "modal_m_close_side_" + props.mobileCloseSide;
-    currentMobileClosePosition = "modal_m_close_pos_" + props.mobileClosePosition;
-    currentMobilePositionX = "modal_m_posX_" + props.mobilePositionX;
-    currentMobilePositionY = "modal_m_posY_" + props.mobilePositionY;
-}
-
-
-let currentDesctopHeight = ''
-let currentDesctopWidth = ''
-let currentDesctopCloseSide = ''
-let currentDesctopClosePosition = ''
-let currentDesctopPositionX = ''
-let currentDesctopPositionY = ''
-
-if (props.desctop) {
-    currentDesctopHeight = "modal_d_height_" + props.desctopHeight;
-    currentDesctopWidth = "modal_d_width_" + props.desctopWidth;
-    currentDesctopCloseSide = "modal_d_close_side_" + props.desctopCloseSide;
-    currentDesctopClosePosition = "modal_d_close_pos_" + props.desctopClosePosition;
-    currentDesctopPositionX = "modal_d_posX_" + props.desctopPositionX;
-    currentDesctopPositionY = "modal_d_posY_" + props.desctopPositionY;
-}
-
-
-
+const desktopClasses = computed(() => {
+    return {
+        modal_d_bodyPadding_false: !props.desctopBodyPadding,
+        [`modal_d_height_${props.desctopHeight}`]: props.desctop,
+        [`modal_d_width_${props.desctopWidth}`]: props.desctop,
+        [`modal_d_close_side_${props.desctopCloseSide}`]: props.desctop,
+        [`modal_d_close_pos_${props.desctopClosePosition}`]: props.desctop,
+        [`modal_d_posX_${props.desctopPositionX}`]: props.desctop,
+        [`modal_d_posY_${props.desctopPositionY}`]: props.desctop,
+    };
+});
 
 
 const currentTransition = ref<string>();
@@ -237,21 +215,7 @@ const onTouchEnd = (e: TouchEvent) => {
     <transition name="fade">
         <div v-if="overlayState" @click="closeModal" class="overlay">
             <transition :name="currentTransition">
-                <div v-if="modalState" @click.stop class="modal" :class="[currentName,
-                    currentDesctopBodyPadding,
-                    currentMobileBodyPadding,
-                    currentMobileWidth,
-                    currentMobileHeight,
-                    currentMobileCloseSide,
-                    currentMobileClosePosition,
-                    currentMobilePositionX,
-                    currentMobilePositionY,
-                    currentDesctopWidth,
-                    currentDesctopHeight,
-                    currentDesctopClosePosition,
-                    currentDesctopCloseSide,
-                    currentDesctopPositionX,
-                    currentDesctopPositionY]"
+                <div v-if="modalState" @click.stop class="modal" :class="[currentName, mobileClasses, desktopClasses]"
                     
                      @touchstart="onTouchStart" @touchmove="onTouchMove" @touchend="onTouchEnd"
                      :style="isTouching ? { transform: `translateY(${Math.max((touchCurrentY - touchStartY) * SWIPE_SENSITIVITY, 0)}px)` } : null"
