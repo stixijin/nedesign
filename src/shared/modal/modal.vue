@@ -1,15 +1,50 @@
 <script lang="ts" setup>
 import "./modal.scss";
-import { ref, watch, onMounted, onUnmounted, computed, useSlots, reactive  } from 'vue';
+import { ref, watch, onMounted, onUnmounted, computed, useSlots, reactive } from 'vue';
 import FeatherIcon from 'vue-feather';
 
 
-type closeSide = "left" | "right" | "top" | "bottom" | "custom";
-type closePosition = "start" | "end" | "custom";
-type PositionX = "left" | "right" | "center" | "custom";
-type PositionY = "top" | "bottom" | "center" | "custom";
-type Dimension = "full" | "half" | "fit" | "custom";
-type Transition = string;
+enum CloseSide {
+    Left = "left",
+    Right = "right",
+    Top = "top",
+    Bottom = "bottom",
+    Custom = "custom",
+}
+
+enum ClosePosition {
+    Start = "start",
+    End = "end",
+    Custom = "custom",
+}
+
+enum PositionX {
+    Left = "left",
+    Right = "right",
+    Center = "center",
+    Custom = "custom",
+}
+
+enum PositionY {
+    Top = "top",
+    Bottom = "bottom",
+    Center = "center",
+    Custom = "custom",
+}
+
+enum Dimension {
+    Full = "full",
+    Half = "half",
+    Fit = "fit",
+    Custom = "custom",
+}
+
+enum Transition {
+    Fade = "fade",
+    DepRight = "depRight",
+    DepBottom = "depBottom",
+    Custom = "custom",
+}
 
 // Определяем интерфейс для свойств компонента
 interface ModalProps {
@@ -19,8 +54,8 @@ interface ModalProps {
     mobile?: boolean;
 
     mobileBodyPadding?: boolean,
-    mobileCloseSide?: closeSide;
-    mobileClosePosition?: closePosition;
+    mobileCloseSide?: CloseSide;
+    mobileClosePosition?: ClosePosition;
     mobilePositionX?: PositionX;
     mobilePositionY?: PositionY;
     mobileHeight?: Dimension;
@@ -28,8 +63,8 @@ interface ModalProps {
     mobileTransition?: Transition;
 
     desctopBodyPadding?: boolean,
-    desctopCloseSide?: closeSide;
-    desctopClosePosition?: closePosition;
+    desctopCloseSide?: CloseSide;
+    desctopClosePosition?: ClosePosition;
     desctopPositionX?: PositionX;
     desctopPositionY?: PositionY;
     desctopHeight?: Dimension;
@@ -48,22 +83,22 @@ const props = withDefaults(defineProps<Props>(), {
     mobile: true,
 
     mobileBodyPadding: false,
-    mobileCloseSide: 'top',
-    mobileClosePosition: 'end',
-    mobilePositionX: 'center',
-    mobilePositionY: 'bottom',
-    mobileHeight: 'fit',
-    mobileWidth: 'full',
-    mobileTransition: 'fade',
+    mobileCloseSide: CloseSide.Top,
+    mobileClosePosition: ClosePosition.End,
+    mobilePositionX: PositionX.Center,
+    mobilePositionY: PositionY.Bottom,
+    mobileHeight: Dimension.Fit,
+    mobileWidth: Dimension.Full,
+    mobileTransition: Transition.DepBottom,
 
     desctopBodyPadding: true,
-    desctopCloseSide: 'left',
-    desctopClosePosition: 'start',
-    desctopPositionX: 'center',
-    desctopPositionY: 'center',
-    desctopHeight: 'fit',
-    desctopWidth: 'fit',
-    desctopTransition: 'fade',
+    desctopCloseSide: CloseSide.Left,
+    desctopClosePosition: ClosePosition.Start,
+    desctopPositionX: PositionX.Center,
+    desctopPositionY: PositionY.Center,
+    desctopHeight: Dimension.Fit,
+    desctopWidth: Dimension.Fit,
+    desctopTransition: Transition.Fade,
 });
 
 const currentName = props.name + '__modal';
@@ -134,7 +169,19 @@ const hasFooter = computed(() => !!slots.footer)
 const MIN_SWIPE_DISTANCE = 160;
 const SWIPE_SENSITIVITY = 0.5; // Коэффициент для уменьшения скорости перемещения
 
-const modalState = reactive({
+
+interface ModalState {
+    overlayVisible: boolean;
+    modalVisible: boolean;
+    touchStartY: number;
+    touchCurrentY: number;
+    touchEndY: number;
+    activeModalName: string | null;
+    isTouching: boolean;
+    isSwiping: boolean;
+}
+
+const modalState =  reactive<ModalState>({
     overlayVisible: props.modelValue,
     modalVisible: false,
     touchStartY: 0,
@@ -225,10 +272,10 @@ const onTouchEnd = (e: TouchEvent) => {
     <transition name="fade">
         <div v-if="modalState.overlayVisible" @click="closeModal" class="overlay">
             <transition :name="currentTransition">
-                <div v-if="modalState.modalVisible" @click.stop class="modal" :class="[currentName, mobileClasses, desktopClasses]"
-                     @touchstart="onTouchStart" @touchmove="onTouchMove" @touchend="onTouchEnd"
-                     :style="modalState.isTouching ? { transform: `translateY(${Math.max((modalState.touchCurrentY - modalState.touchStartY) * SWIPE_SENSITIVITY, 0)}px)` } : null"
-                    >
+                <div v-if="modalState.modalVisible" @click.stop class="modal"
+                    :class="[currentName, mobileClasses, desktopClasses]" @touchstart="onTouchStart"
+                    @touchmove="onTouchMove" @touchend="onTouchEnd"
+                    :style="modalState.isTouching ? { transform: `translateY(${Math.max((modalState.touchCurrentY - modalState.touchStartY) * SWIPE_SENSITIVITY, 0)}px)` } : null">
                     <div class="modal__nav">
                         <button @click="closeModal" class="modal__btnClose">
                             <feather-icon type="x" />
@@ -251,4 +298,3 @@ const onTouchEnd = (e: TouchEvent) => {
         </div>
     </transition>
 </template>
-
