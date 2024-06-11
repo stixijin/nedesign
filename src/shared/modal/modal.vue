@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import "./modal.scss";
-import { ref, watch, onMounted, onUnmounted, computed, useSlots  } from 'vue';
+import { ref, watch, onMounted, onUnmounted, computed, useSlots, reactive  } from 'vue';
 import FeatherIcon from 'vue-feather';
 
 
@@ -56,7 +56,7 @@ const props = withDefaults(defineProps<Props>(), {
     mobileWidth: 'full',
     mobileTransition: 'fade',
 
-    desctopBodyPadding: false,
+    desctopBodyPadding: true,
     desctopCloseSide: 'left',
     desctopClosePosition: 'start',
     desctopPositionX: 'center',
@@ -112,28 +112,6 @@ onUnmounted(() => {
     window.removeEventListener('resize', updateTransition);
 });
 
-let overlayState = ref<boolean>(props.modelValue);
-let modalState = ref<boolean>(false);
-
-const openModal = () => {
-    overlayState.value = true;
-    document.body.classList.add('scroll_fixed');
-    setTimeout(() => {
-        modalState.value = true;
-    }, 300); // Задержка, чтобы модальное окно появилось после оверлея
-}
-
-const closeModal = () => {
-    modalState.value = false;
-    setTimeout(() => {
-        overlayState.value = false;
-        document.body.classList.remove('scroll_fixed');
-        touchStartY.value = 0;
-        touchCurrentY.value = 0;
-        touchEndY.value = 0;
-        activeModalName.value = null;
-    }, 10); // Задержка, чтобы модальное окно скрылось перед оверлеем
-}
 
 const emits = defineEmits([
     'updateState',
@@ -153,59 +131,91 @@ const hasHeader = computed(() => !!slots.header)
 const hasBody = computed(() => !!slots.body)
 const hasFooter = computed(() => !!slots.footer)
 
-
-
-const activeModalName = ref<string | null>(null);
-const touchStartY = ref<number>(0);
-const touchCurrentY = ref<number>(0);
-const touchEndY = ref<number>(0);
 const MIN_SWIPE_DISTANCE = 160;
 const SWIPE_SENSITIVITY = 0.5; // Коэффициент для уменьшения скорости перемещения
-const isTouching = ref<boolean>(false);
-const isSwiping = ref<boolean>(false);
+
+const modalState = reactive({
+    overlayVisible: props.modelValue,
+    modalVisible: false,
+    touchStartY: 0,
+    touchCurrentY: 0,
+    touchEndY: 0,
+    activeModalName: null,
+    isTouching: false,
+    isSwiping: false,
+});
+
+const openModal = () => {
+    modalState.overlayVisible = true;
+    document.body.classList.add('scroll_fixed');
+    setTimeout(() => {
+        modalState.modalVisible = true;
+    }, 300); // Задержка, чтобы модальное окно появилось после оверлея
+};
+
+const closeModal = () => {
+    modalState.modalVisible = false;
+    setTimeout(() => {
+        modalState.overlayVisible = false;
+        document.body.classList.remove('scroll_fixed');
+        resetTouchState();
+    }, 10); // Задержка, чтобы модальное окно скрылось перед оверлеем
+};
+
+const resetTouchState = () => {
+    modalState.touchStartY = 0;
+    modalState.touchCurrentY = 0;
+    modalState.touchEndY = 0;
+    modalState.activeModalName = null;
+};
+
+const handleSwipeEnd = (swipeDistance: number) => {
+    if (swipeDistance > MIN_SWIPE_DISTANCE) {
+        // Добавляем класс для плавного ухода вниз
+        modalState.isTouching = false; // Устанавливаем флаг для начала анимации закрытия
+        const modalElement = document.querySelector(`.${currentName}`);
+        if (modalElement) {
+            modalElement.classList.add('release-animation');
+            setTimeout(() => {
+                closeModal();
+                setTimeout(() => {
+                    modalElement.classList.remove('release-animation');
+                    modalState.activeModalName = null; // Сбрасываем активное модальное окно после окончания анимации
+                }, 300); // Убираем класс после завершения анимации
+            }, 300); // Задержка перед началом сброса состояния
+        }
+    } else {
+        modalState.touchCurrentY = modalState.touchStartY; // Возвращаем в исходное положение, если свайп недостаточный
+        modalState.isTouching = false; // Сбрасываем флаг после окончания касания
+    }
+};
 
 const onTouchStart = (e: TouchEvent) => {
-  if ((e.target as HTMLElement).closest('.modal')?.classList.contains(currentName)) {
-    touchStartY.value = e.touches[0].clientY;
-    touchCurrentY.value = touchStartY.value;
-    activeModalName.value = props.name;
-    isTouching.value = true; // Устанавливаем флаг, что началось касание
-    isSwiping.value = true; // Устанавливаем флаг для отслеживания свайпа
-  }
+    const target = e.target as HTMLElement;
+    if (target.closest('.modal')?.classList.contains(currentName)) {
+        modalState.touchStartY = e.touches[0].clientY;
+        modalState.touchCurrentY = modalState.touchStartY;
+        modalState.activeModalName = props.name;
+        modalState.isTouching = true; // Устанавливаем флаг, что началось касание
+        modalState.isSwiping = true; // Устанавливаем флаг для отслеживания свайпа
+    }
 };
 
 const onTouchMove = (e: TouchEvent) => {
-  if (isSwiping.value) {
-    touchCurrentY.value = e.touches[0].clientY;
-  }
+    if (modalState.isSwiping) {
+        modalState.touchCurrentY = e.touches[0].clientY;
+    }
 };
 
 const onTouchEnd = (e: TouchEvent) => {
-  if (activeModalName.value === props.name) {
-    touchEndY.value = e.changedTouches[0].clientY;
-    const swipeDistance = touchEndY.value - touchStartY.value;
-    isSwiping.value = false; // Завершаем свайп
-
-    if (swipeDistance > MIN_SWIPE_DISTANCE) {
-      // Добавляем класс для плавного ухода вниз
-      isTouching.value = false; // Устанавливаем флаг для начала анимации закрытия
-      const modalElement = document.querySelector(`.${currentName}`);
-      if (modalElement) {
-        modalElement.classList.add('release-animation');
-        setTimeout(() => {
-          closeModal();
-          setTimeout(() => {
-            modalElement.classList.remove('release-animation');
-            activeModalName.value = null; // Сбрасываем активное модальное окно после окончания анимации
-          }, 300); // Убираем класс после завершения анимации
-        }, 300); // Задержка перед началом сброса состояния
-      }
-    } else {
-      touchCurrentY.value = touchStartY.value; // Возвращаем в исходное положение, если свайп недостаточный
-      isTouching.value = false; // Сбрасываем флаг после окончания касания
+    if (modalState.activeModalName === props.name) {
+        modalState.touchEndY = e.changedTouches[0].clientY;
+        const swipeDistance = modalState.touchEndY - modalState.touchStartY;
+        modalState.isSwiping = false; // Завершаем свайп
+        handleSwipeEnd(swipeDistance);
     }
-  }
 };
+
 </script>
 
 <template>
@@ -213,12 +223,11 @@ const onTouchEnd = (e: TouchEvent) => {
         <slot name="action"></slot>
     </div>
     <transition name="fade">
-        <div v-if="overlayState" @click="closeModal" class="overlay">
+        <div v-if="modalState.overlayVisible" @click="closeModal" class="overlay">
             <transition :name="currentTransition">
-                <div v-if="modalState" @click.stop class="modal" :class="[currentName, mobileClasses, desktopClasses]"
-                    
+                <div v-if="modalState.modalVisible" @click.stop class="modal" :class="[currentName, mobileClasses, desktopClasses]"
                      @touchstart="onTouchStart" @touchmove="onTouchMove" @touchend="onTouchEnd"
-                     :style="isTouching ? { transform: `translateY(${Math.max((touchCurrentY - touchStartY) * SWIPE_SENSITIVITY, 0)}px)` } : null"
+                     :style="modalState.isTouching ? { transform: `translateY(${Math.max((modalState.touchCurrentY - modalState.touchStartY) * SWIPE_SENSITIVITY, 0)}px)` } : null"
                     >
                     <div class="modal__nav">
                         <button @click="closeModal" class="modal__btnClose">
@@ -230,14 +239,11 @@ const onTouchEnd = (e: TouchEvent) => {
                             <slot name="header"></slot>
                         </div>
                         <div v-if="hasBody" class="modal__body">
-                            <slot name="body">
-
-                            </slot>
+                            <slot name="body"></slot>
                         </div>
                         <div v-if="hasFooter" class="modal__footer">
                             <slot name="footer"></slot>
                         </div>
-
                     </div>
                     <slot name="alerts"></slot>
                 </div>
@@ -245,3 +251,4 @@ const onTouchEnd = (e: TouchEvent) => {
         </div>
     </transition>
 </template>
+
