@@ -33,31 +33,31 @@
     .mainLogo {
         color: $dark_gray100;
         background: $dark_surface;
-        outline: 1px solid $dark_border;
+        border: 1px solid $dark_border;
         transition: 0.3s;
     }    
     .mainLogo:hover {
         color: $dark_gray100;
         background: $dark_surfaceHover;
-        outline: 1px solid $dark_borderHover;
+        border: 1px solid $dark_borderHover;
     }
     .mainLogo:focus {
-        outline: 1px solid $dark_borderFocus;
+        border: 1px solid $dark_borderFocus;
     }
     .mainLogo_noHover:hover {
         color: $dark_gray100;
         background: $dark_surface;
-        outline: 1px solid $dark_border;
+        border: 1px solid $dark_border;
     }
     .mainLogo:active {
         color: $dark_gray100;
         background: $dark_surfaceActive;
-        outline: 1px solid $dark_borderActive;
+        border: 1px solid $dark_borderActive;
     }
     .mainLogo_noHover:active {
         color: $dark_gray100;
         background: $dark_surface;
-        outline: 1px solid $dark_border;
+        border: 1px solid $dark_border;
     }
 }
 

@@ -6,7 +6,11 @@
     gap: $offset50;
 }
 
-.modal__areaSwitcher {
-    left: 298px;
-    top: 12px;
+.areaSwitcher__modal {
+    margin-left: calc($menuWidth - 56px);
+    margin-top: calc($bodyOffset / 2);
+}
+
+.areaSwitcher__modal .modal__nav {
+    margin: 0 !important;
 }

@@ -5,7 +5,7 @@
     padding: 16px;
     border-radius: $mainBR;
     transition: 0.5s;
-    outline: 2px solid transparent;
+    border: 2px solid transparent;
 }
 
 .input {
@@ -27,7 +27,7 @@
 .dark {
     .input__field {
         background: transparent;
-        outline: 1px solid $dark_gray70;
+        border: 1px solid $dark_gray70;
         color: $dark_accent100;
         font-size: 16px;
         font-weight: 500;
@@ -37,13 +37,13 @@
         font-size: 14px;
     }
     .input__field:focus {
-        outline: 2px solid $dark_primary100;
+        border: 2px solid $dark_primary100;
     }
     .input__field_error {
-        outline: 2px solid $dark_error40;
+        border: 2px solid $dark_error40;
     }
     .input__field_succesful {
-        outline: 2px solid $dark_succes50;
+        border: 2px solid $dark_succes50;
     }
     .input__label {
         color: $dark_accent100;

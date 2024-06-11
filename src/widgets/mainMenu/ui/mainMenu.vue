@@ -1,7 +1,7 @@
 <script setup>
 import MainLogo from "#shared/mainLogo/mainLogo.vue";
 import AreaSwitcher from "#features/areasSwitcher/ui/areaSwitcher.vue"
-import callbackFormModal from "#features/callbackForm/ui/callbackFormModal.vue"
+import CallbackFormModal from "#features/callbackForm/ui/callbackFormModal.vue"
 import './mainMenu.scss';
 
 const props = defineProps({
@@ -25,7 +25,7 @@ const props = defineProps({
             <slot name="menuContent"></slot>
         </div>
         <div class="mainMenu__end">
-            <callbackFormModal></callbackFormModal>
+            <CallbackFormModal></CallbackFormModal>
         </div>
     </nav>
 </template>

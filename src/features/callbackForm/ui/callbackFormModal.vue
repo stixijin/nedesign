@@ -30,7 +30,25 @@ const showError = () => {
 
 <template>
 
-    <Modal @updateState="updateModalState" v-model="modalState" closePos="top-left" name="callback">
+    <Modal @updateState="updateModalState" v-model="modalState" 
+    name="callback"
+    desctopHeight="fit"
+    desctopWidth="fit"
+    desctopCloseSide="left"
+    desctopClosePosition="start"
+    desctopPositionX="center"
+    desctopPositionY="center"
+    desctopTransition="fade"
+    :desctopBodyPadding=false
+    mobileHeight="fit"
+    mobileWidth="full"
+    mobileCloseSide="top"
+    mobileClosePosition="end"
+    mobilePositionX="center"
+    mobilePositionY="bottom"
+    mobileTransition="depBottom"
+    :mobileBodyPadding=false
+    >
         <template v-slot:action>
             <Button buttonColor="primary" buttonText="Обратная связь"></Button>
         </template>

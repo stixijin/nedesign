@@ -5,6 +5,9 @@ import icon from "astro-icon";
 // https://astro.build/config
 export default defineConfig({
     site: "https://nedesigner.ru",
+    devToolbar: {
+      enabled: false
+    },
     prefetch: {
       prefetchAll: true,
     },

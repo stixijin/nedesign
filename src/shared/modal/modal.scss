@@ -1,58 +1,23 @@
 @import "#tokens/main";
 
 .modal {
-    position: absolute;
     z-index: 100;
     display: flex;
     gap: $offset50;
     width: 340px;
-}
-
-.modal_close_left-top {
-    flex-direction: row;
-}
-.modal_close_left-bot {
-    flex-direction: row;
-    align-items: flex-end;
-}
-.modal_close_top-right {
-    flex-direction: column;
-    align-items: flex-end;
-}
-.modal_close_top-left {
-    flex-direction: column;
-}
-
-.modal__window { 
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    padding: $offset50;
-    border-radius: $mainBR;
-    width: 100%;
-    z-index: 100;
+    z-index: 1010;
 }
 
 .overlay {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: $overlay;
-    height: 100vh;
-    width: 100vw;
-    top: -12px;
-    left: -12px;
-    z-index: 10;
-}
-
-.modalContainer {
     position: fixed;
-    top:0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
     display: grid;
+    background: $overlay;
+    height: 100dvh;
+    width: 100dvw;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    padding: $bodyOffset;
 }
 
 .modal__btnClose {
@@ -77,27 +42,265 @@
     width: auto;
 }
 
+.modal__window { 
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    border-radius: $mainBR;
+    width: 100%;
+    height: 100%;
+    gap: 12px;
+    padding: 10px 0;
+}
+
+.modal__header,
+.modal__footer {
+  flex: 0 0 auto;
+  padding: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.modal__body {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    padding: 2px;
+    padding: 0 10px;
+  }
+
+
+
+// Позиционирование
+
+@media (max-width: 768px) {
+    .modal_m_posX_left {
+        justify-self: left;
+    }
+    .modal_m_posX_center {
+        justify-self: center;
+    }
+    .modal_m_posX_right {
+        justify-self: right;
+    }
+    .modal_m_posY_top {
+        align-self: flex-start;
+    }
+    .modal_m_posY_center {
+        align-self: center;
+    }
+    .modal_m_posY_bottom {
+        align-self: flex-end;
+    }
+
+    .modal_m_close_side_left {
+        flex-direction: row;
+        padding-left: $bodyOffset;
+        .modal__nav {
+            margin: $bodyOffset 0;
+        }
+    }
+    .modal_m_close_side_top {
+        flex-direction: column;
+        padding-top: $bodyOffset;
+        .modal__nav {
+            margin: 0 $bodyOffset;
+        }
+    }
+    .modal_m_close_side_right {
+        flex-direction: row-reverse;
+        padding-right: $bodyOffset;
+        .modal__nav {
+            margin: $bodyOffset 0;
+        }
+    }
+    .modal_m_close_side_bottom {
+        flex-direction: column-reverse;
+        padding-bottom: $bodyOffset;
+        .modal__nav {
+            margin: 0 $bodyOffset;
+        }
+    }
+
+
+    .modal_m_close_pos_start {
+        align-items: start;
+    }
+    .modal_m_close_pos_end {
+        align-items: end;
+    }
+
+
+    .modal_m_height_fit {
+        height: fit-content;
+    }
+    .modal_m_width_fit {
+        width: fit-content;
+    }
+
+    .modal_m_height_full {
+        height: calc(100dvh - ($bodyOffset*2));
+    }
+    .modal_m_height_half {
+        height: calc(50dvh - ($bodyOffset*2));
+    }
+
+    .modal_m_width_full {
+        width: calc(100dvw - ($bodyOffset*2));
+    }
+    .modal_m_width_half {
+        width: calc(50dvw - ($bodyOffset*2));
+    }
+
+    .modal_m_bodyPadding_false {
+        margin: calc($bodyOffset * -1);
+    }
+    
+    .modal_m_bodyPadding_false.modal_m_height_full {
+        height: calc(100dvh);
+    }
+    .modal_m_bodyPadding_false.modal_m_height_half {
+        height: calc(50dvh);
+    }
+
+    .modal_m_bodyPadding_false.modal_m_width_full {
+        width: calc(100dvw);
+    }
+    .modal_m_bodyPadding_false.modal_m_width_half {
+        width: calc(50dvw);
+    }
+    
+
+}
+
+@media (min-width: 769px) {
+    .modal_d_bodyPadding_false {
+        margin: calc($bodyOffset * -1);
+    }    
+    .modal_d_posX_left {
+        justify-self: left;
+
+    }
+    .modal_d_posX_center {
+        justify-self: center;
+    }
+    .modal_d_posX_right {
+        justify-self: right;
+    }
+    .modal_d_posY_top {
+        align-self: flex-start;
+
+    }
+    .modal_d_posY_center {
+        align-self: center;
+    }
+    .modal_d_posY_bottom {
+        align-self: flex-end;
+    }
+
+    .modal_d_close_side_left {
+        flex-direction: row;
+        padding-right: $bodyOffset;
+        .modal__nav {
+            margin: $bodyOffset 0;
+        }
+    }
+    .modal_d_close_side_top {
+        flex-direction: column;
+        padding-bottom: $bodyOffset;
+        .modal__nav {
+            margin: 0 $bodyOffset;
+        }
+    }
+    .modal_d_close_side_right {
+        flex-direction: row-reverse;
+        padding-right: $bodyOffset;
+        .modal__nav {
+            margin: $bodyOffset 0;
+        }
+    }
+    .modal_d_close_side_bottom {
+        flex-direction: column-reverse;
+        padding-bottom: $bodyOffset;
+        .modal__nav {
+            margin: 0 $bodyOffset;
+        }
+    }
+
+    .modal_d_close_pos_start {
+        align-items: start;
+    }
+    .modal_d_close_pos_end {
+        align-items: end;
+    }
+
+    .modal_d_height_fit {
+        height: fit-content;
+    }
+    .modal_d_height_full {
+        height: 100%;
+    }
+    .modal_d_height_half {
+        height: 50%;
+    }
+    .modal_d_width_fit {
+        width: fit-content;
+    }
+    .modal_d_width_full {
+        width: 100%;
+    }
+    .modal_d_width_half {
+        width: 50%;
+    }
+}
+
+
+
+.modal_close_left-top {
+    flex-direction: row;
+}
+.modal_close_left-bot {
+    flex-direction: row;
+    align-items: flex-end;
+}
+.modal_close_top-right {
+    flex-direction: column;
+    align-items: flex-end;
+}
+.modal_close_top-left {
+    flex-direction: column;
+}
+
+
+
+.modal_right{
+    right: 0;
+    height: 100ddvh;
+    width: calc(100dvw - 12px);
+}
+
+// Цвета
+
 .dark {
     .modal__window {
         background: $dark_surface;
-        outline: 1px solid $dark_border;
+        border: 1px solid $dark_border;
     }
     .modal__btnClose {
         background: $dark_surface;
-        outline: 1px solid $dark_border;
+        border: 1px solid $dark_border;
         color: $dark_gray100;
     }
     .modal__btnClose:hover {
         color: $dark_gray100;
         background: $dark_surfaceHover;
-        outline: 1px solid $dark_borderHover;
+        border: 1px solid $dark_borderHover;
     }
     .modal__btnClose:focus {
-        outline: 1px solid $dark_borderFocus;
+        border: 1px solid $dark_borderFocus;
     }
     .modal__btnClose:active {
         color: $dark_gray100;
         background: $dark_surfaceActive;
-        outline: 1px solid $dark_borderActive;
+        border: 1px solid $dark_borderActive;
     }
 }

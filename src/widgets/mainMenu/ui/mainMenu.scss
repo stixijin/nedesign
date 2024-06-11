@@ -1,41 +1,41 @@
 @import "#tokens/main.scss";
 
-.mainMenu {
-    max-width: 340px;
-    width: 340px;
-    position: fixed;
-    height: calc(100vh - 48px);
-    gap: $offset60;
-    display: flex;
-    flex-direction: column;
-}
+@media (min-width: 769px) {
+    .mainMenu {
+        max-width: $menuWidth;
+        width: $menuWidth;
+        position: fixed;
+        height: calc(100vh - $bodyOffset*2);
+        gap: $offset60;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .mainMenu__logo {
+        position: relative;
+        display: flex;
+        gap: $offset40;
+        position: relative;
+        align-items: center;
+    }
+    
+    .mainMenu__content {
+        height: 100%;
+    }
+    
+    .mainMenu__end {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding-bottom: 8px;
+    }
+    
+    .modal__callback {
+        align-self: center;
+        justify-self: center;
+    }
+    
 
-.mainMenu__logo {
-    position: relative;
-    display: flex;
-    gap: $offset40;
-    position: relative;
-    align-items: center;
-}
-
-.mainMenu__content {
-    height: 100%;
-}
-
-.mainMenu__end {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.modal__callback {
-    align-self: center;
-    justify-self: center;
-}
-
-.modal__callback .modal__window {
-    padding: 24px;
-    width: 380px;
 }
 
 

@@ -53,33 +53,33 @@
 
     .button_color_primary.button_type_filled {
         background: $dark_primary30;
-        outline: 1px solid $dark_primary20;
+        border: 1px solid $dark_primary20;
         color: $dark_primary100;
     }
     .button_color_primary.button_type_filled:hover {
         background: $dark_primary20;
-        outline: 1px solid $dark_primary10;
+        border: 1px solid $dark_primary10;
         color: $dark_primary100;
     }
     .button_color_primary.button_type_filled:active {
         background: $dark_primary10;
-        outline: 1px solid $dark_primary10;
+        border: 1px solid $dark_primary10;
         color: $dark_gray90;
     }
     
     .button_color_primary.button_type_border {
         background: transparent;
-        outline: 1px solid $dark_primary30;
+        border: 1px solid $dark_primary30;
         color: $dark_primary30;
     }
     .button_color_primary.button_type_border:hover {
         background: transparent;
-        outline: 1px solid $dark_primary20;
+        border: 1px solid $dark_primary20;
         color: $dark_primary20;
     }
     .button_color_primary.button_type_border:active {
         background: transparent;
-        outline: 1px solid $dark_primary10;
+        border: 1px solid $dark_primary10;
         color: $dark_primary10;
     }
 
@@ -87,173 +87,173 @@
 
     .button_color_accent.button_type_filled {
         background: $dark_accent40;
-        outline: 1px solid $dark_accent30;
+        border: 1px solid $dark_accent30;
         color: $dark_accent100;
     }
     .button_color_accent.button_type_filled:hover {
         background: $dark_accent30;
-        outline: 1px solid $dark_accent20;
+        border: 1px solid $dark_accent20;
         color: $dark_accent100;
     }
     .button_color_accent.button_type_filled:active {
         background: $dark_accent20;
-        outline: 1px solid $dark_accent20;
+        border: 1px solid $dark_accent20;
         color: $dark_accent90;
     }
     
     .button_color_accent.button_type_border {
         background: transparent;
-        outline: 1px solid $dark_accent40;
+        border: 1px solid $dark_accent40;
         color: $dark_accent40;
     }
     .button_color_accent.button_type_border:hover {
         background: transparent;
-        outline: 1px solid $dark_accent30;
+        border: 1px solid $dark_accent30;
         color: $dark_accent30;
     }
     .button_color_accent.button_type_border:focus {
-        outline: 1px solid $dark_borderFocusAlt;
+        border: 1px solid $dark_borderFocusAlt;
     }
     .button_color_accent.button_type_border:active {
         background: transparent;
-        outline: 1px solid $dark_accent20;
+        border: 1px solid $dark_accent20;
         color: $dark_accent20;
     }
 
 
     .button_color_white.button_type_filled {
         background: $dark_gray100;
-        outline: 1px solid $dark_gray90;
+        border: 1px solid $dark_gray90;
         color: $dark_primary40;
     }
     .button_color_white.button_type_filled:hover {
         background: $dark_primary90;
-        outline: 1px solid $dark_gray80;
+        border: 1px solid $dark_gray80;
         color: $dark_primary30;
     }
     .button_color_white.button_type_filled:active {
         background: $dark_primary80;
-        outline: 1px solid $dark_gray80;
+        border: 1px solid $dark_gray80;
         color: $dark_primary20;
     }
     
     .button_color_white.button_type_border {
         background: transparent;
-        outline: 1px solid $dark_gray100;
+        border: 1px solid $dark_gray100;
         color: $dark_gray100;
     }
     .button_color_white.button_type_border:hover {
         background: transparent;
-        outline: 1px solid $dark_primary80;
+        border: 1px solid $dark_primary80;
         color: $dark_primary80;
     }
     .button_color_white.button_type_border:active {
         background: transparent;
-        outline: 1px solid $dark_primary60;
+        border: 1px solid $dark_primary60;
         color: $dark_primary60;
     }
 
     .button_color_error.button_type_filled {
         background: $dark_error50;
-        outline: 1px solid $dark_error40;
+        border: 1px solid $dark_error40;
         color: $dark_error90;
     }
     .button_color_error.button_type_filled:hover {
         background: $dark_error40;
-        outline: 1px solid $dark_error30;
+        border: 1px solid $dark_error30;
         color: $dark_error90;
     }
     .button_color_error.button_type_filled:active {
         background: $dark_error30;
-        outline: 1px solid $dark_error30;
+        border: 1px solid $dark_error30;
         color: $dark_error90;
     }
     
     .button_color_error.button_type_border {
         background: transparent;
-        outline: 1px solid $dark_error50;
+        border: 1px solid $dark_error50;
         color: $dark_error50;
     }
     .button_color_error.button_type_border:hover {
         background: transparent;
-        outline: 1px solid $dark_error40;
+        border: 1px solid $dark_error40;
         color: $dark_error40;
     }
     .button_color_error.button_type_border:active {
         background: transparent;
-        outline: 1px solid $dark_error30;
+        border: 1px solid $dark_error30;
         color: $dark_error30;
     }
 
     .button_color_succes.button_type_filled {
         background: $dark_succes50;
-        outline: 1px solid $dark_succes40;
+        border: 1px solid $dark_succes40;
         color: $dark_succes90;
     }
     .button_color_succes.button_type_filled:hover {
         background: $dark_succes40;
-        outline: 1px solid $dark_succes30;
+        border: 1px solid $dark_succes30;
         color: $dark_succes90;
     }
     .button_color_succes.button_type_filled:active {
         background: $dark_succes30;
-        outline: 1px solid $dark_succes30;
+        border: 1px solid $dark_succes30;
         color: $dark_succes90;
     }
     
     .button_color_succes.button_type_border {
         background: transparent;
-        outline: 1px solid $dark_succes50;
+        border: 1px solid $dark_succes50;
         color: $dark_succes50;
     }
     .button_color_succes.button_type_border:hover {
         background: transparent;
-        outline: 1px solid $dark_succes40;
+        border: 1px solid $dark_succes40;
         color: $dark_succes40;
     }
     .button_color_succes.button_type_border:active {
         background: transparent;
-        outline: 1px solid $dark_succes30;
+        border: 1px solid $dark_succes30;
         color: $dark_succes30;
     }
 
 
     .button_color_black.button_type_filled {
         background: $dark_surface;
-        outline: 1px solid $dark_border;
+        border: 1px solid $dark_border;
         color: $dark_gray100;
     }
     .button_color_black.button_type_filled:hover {
         color: $dark_gray100;
         background: $dark_surfaceHover;
-        outline: 1px solid $dark_borderHover;
+        border: 1px solid $dark_borderHover;
     }
     .button_color_black.button_type_filled:active {
         color: $dark_gray100;
         background: $dark_surfaceActive;
-        outline: 1px solid $dark_borderActive;
+        border: 1px solid $dark_borderActive;
     }
     
     .button_color_black.button_type_border {
         background: $dark_surface;
-        outline: 1px solid $dark_border;
+        border: 1px solid $dark_border;
         color: $dark_gray100;
     }
     .button_color_black.button_type_border:hover {
         color: $dark_gray100;
         background: $dark_surfaceHover;
-        outline: 1px solid $dark_borderHover;
+        border: 1px solid $dark_borderHover;
     }
     .button_color_black.button_type_border:active {
         color: $dark_gray100;
         background: $dark_surfaceActive;
-        outline: 1px solid $dark_borderActive;
+        border: 1px solid $dark_borderActive;
     }
 
 
 
     .button:focus {
-        outline: 1px solid $dark_borderFocus;
+        border: 1px solid $dark_borderFocus;
     }
 
 

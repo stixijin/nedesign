@@ -5,4 +5,5 @@ export default interface Button {
     buttonSize?: "xs" | "sm" | "md" | "xl";
     buttonIcon?: string;
     buttonIconSide?: "left" | "right" | "left-right";
+    customIcon?: boolean;
 }

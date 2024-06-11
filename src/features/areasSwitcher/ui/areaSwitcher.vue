@@ -14,7 +14,19 @@ const props = defineProps({
 
 
 <template>
-    <Modal closePos="left" name="areaSwitcher">
+    <Modal name="areaSwitcher"
+        desctopPositionX="custom"
+        desctopPositionY="custom"
+        desctopTransition="fade"
+        mobileHeight="fit"
+        mobileWidth="full"
+        mobileCloseSide="top"
+        mobileClosePosition="end"
+        mobilePositionX="center"
+        mobilePositionY="bottom"
+        mobileTransition="depBottom"
+        :mobileBodyPadding=false
+    >
         <template v-slot:action>
             <Button buttonIcon="area" buttonSize="xl" buttonColor="black"></Button>
         </template>

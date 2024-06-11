@@ -1,0 +1,53 @@
+@import "#tokens/main.scss";
+
+
+@media (max-width: 768px) {
+
+    .bottomBar {
+        background:$dark_surface20;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        display: flex;
+        justify-content: space-around;
+        padding: 4px 0;
+    }
+    .mobailMenu__header {
+        position: relative;
+        display: flex;
+        gap: $offset40;
+        position: relative;
+        align-items: center;
+    }
+    
+    .mobailMenu {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .mobailMenu__body .blockMenu{
+        margin-top: 8px;
+    }
+
+    .mobailMenu__body {
+        padding-bottom: 12px;
+    }
+
+    .mobileMenu__modal .modal__window {
+        padding-bottom: 16px;
+    }
+
+
+
+    
+}
+
+
+@media (min-width: 769px) {
+    .bottomBar {
+        display: none;
+    } 
+}

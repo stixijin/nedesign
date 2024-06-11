@@ -66,7 +66,7 @@ const onSubmit = async function (v) {
 
 <template>
   <div>
-      <form v-show="formSubmittal !== 'succesful'" class="form" @submit.prevent="onSubmit(v$)">
+      <form v-show="formSubmittal !== 'succesful'" class="form callback__form" @submit.prevent="onSubmit(v$)">
         <div class="form__head">
           <h1 class="form__title">Заполните форму</h1>
         </div>

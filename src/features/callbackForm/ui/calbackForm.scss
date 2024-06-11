@@ -12,6 +12,13 @@
     gap: 24px;
 }
 
+.callback__form {
+    width: 304px;
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+}
+
 .form__action {
     display: flex;
     flex-direction: column;
@@ -35,18 +42,6 @@
     color: $dark_succes50;
 }
 
-.alert {
-    color: $dark_error100;
-    background: $dark_error40;
-    padding: $offset50;
-    border-radius: $mainBR;
-    font-size: 14px;
-    position: absolute;
-    left: 36px;
-    width: 304px;
-    bottom: -64px;
-}
-
 .form__result svg {
     height: 100%;
     width: auto;
@@ -55,4 +50,13 @@
 .form__title {
     color: $dark_gray100;
     text-align: center;
+}
+
+
+.callback__modal .modal__window {
+    padding: 16px 8px 24px 8px;
+    @media (min-width: 769px) {
+        padding: 24px;
+        width: 380px;
+    }
 }

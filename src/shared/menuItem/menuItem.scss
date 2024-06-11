@@ -17,37 +17,56 @@
     width: 20px;
 }
 
-.menuItem__icon {
+.menuItem__icon_mobile, .menuItem__icon_mobile svg {
+    height: 24px;
+    width: 24px; 
+}
+
+.menuItem__icon_desctop {
     margin-top: 1px;
+}
+
+.menuItem_mobile {
+    flex-direction: column;
+    width: fit-content;
+    align-items: center;
+    gap: 6px;
+    width: 64px;
+    padding-bottom: 6px;
+}
+
+.menuItem__label_mobile {
+    font-size: 12px;
+    line-height: 16px;
 }
 
 .dark {
     .menuItem {
         color: $dark_text;
-        outline: 1px solid transparent;
+        border: 1px solid transparent;
         transition: 0.3s;
     }
     .selected {
         background: $dark_accent40;
-        outline: 1px solid $dark_accent30
+        border: 1px solid $dark_accent30
     }
     .menuItem:hover {
         background: $dark_surface30;
-        outline: 1px solid $dark_surface40;
+        border: 1px solid $dark_surface40;
     }
     .menuItem:focus {
-        outline: 1px solid $dark_borderFocus;
+        border: 1px solid $dark_borderFocus;
     }
     .selected:hover {
         background: $dark_accent40;
-        outline: 1px solid $dark_accent20
+        border: 1px solid $dark_accent20
     }
     .menuItem:active {
         background: $dark_surface40;
-        outline: 1px solid $dark_surface40;
+        border: 1px solid $dark_surface40;
     }
     .selected:active {
         background: $dark_accent40;
-        outline: 1px solid $dark_accent20
+        border: 1px solid $dark_accent20
     }
 }
