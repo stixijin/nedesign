@@ -66,29 +66,30 @@ const onSubmit = async function (v) {
 
 <template>
   <div>
-      <form v-show="formSubmittal !== 'succesful'" class="form callback__form" @submit.prevent="onSubmit(v$)">
-        <div class="form__head">
-          <h1 class="form__title">Заполните форму</h1>
-        </div>
-        <div class="form__body">
-          <InputName @update:value="receiveName" placeholder="Например: Константин Константинович" name="name"
-            label="Как к вам обращаться?"></InputName>
-          <InputTg @update:value="receiveTg" placeholder="Например: @konstantin" name="telegram" label="Ваш телеграм">
-          </InputTg>
-        </div>
-
-        <div class="form__action">
-          <Button :class="{ shake: formSubmittal == 'error' }" type="submit" buttonText="Отправить конткты"></Button>
-        </div>
-      </form>
-
-
-      <div v-show="formSubmittal == 'succesful'">
-        <div class="form__result">
-          <h2 class="form__title">Форма успешно отправлена!</h2>
-          <Icon name="succesfulSend"></Icon>
-        </div>
+    <form v-show="formSubmittal !== 'succesful'" class="form callback__form" @submit.prevent="onSubmit(v$)">
+      <div class="form__head">
+        <h1 class="form__title">Заполните форму</h1>
       </div>
+      <div class="form__body">
+        <InputName @update:value="receiveName" placeholder="Например: Константин Константинович" name="name"
+          label="Как к вам обращаться?"></InputName>
+        <InputTg @update:value="receiveTg" placeholder="Например: @konstantin" name="telegram" label="Ваш телеграм">
+        </InputTg>
+      </div>
+
+      <div class="form__action">
+        <Button :class="{ shake: formSubmittal == 'error' }" type="submit" buttonText="Отправить конткты"
+          mobileWidth="full"></Button>
+      </div>
+    </form>
+
+
+    <div v-show="formSubmittal == 'succesful'">
+      <div class="form__result">
+        <h2 class="form__title">Форма успешно отправлена!</h2>
+        <Icon name="succesfulSend"></Icon>
+      </div>
+    </div>
   </div>
 
 

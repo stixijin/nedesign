@@ -48,6 +48,18 @@
     line-height: 125%;
 }
 
+@media (max-width: 768px) {
+    .button_m_width_full {
+        width: 100%; 
+        .button__text {
+            width: 100%;
+            text-align: center;
+        }
+    }
+}
+
+
+
 
 .dark {
 

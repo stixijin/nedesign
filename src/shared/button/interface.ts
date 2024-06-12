@@ -6,4 +6,5 @@ export default interface Button {
     buttonIcon?: string;
     buttonIconSide?: "left" | "right" | "left-right";
     customIcon?: boolean;
+    mobileWidth?: "fit" | 'full';
 }

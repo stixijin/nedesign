@@ -13,7 +13,8 @@
         buttonIcon: undefined,
         customIcon: false,
         buttonIconSide: "left",
-        buttonText: undefined
+        buttonText: undefined,
+        mobileWidth: 'fit',
 })
 
     const buttonColor = "button_color_" + props.buttonColor;
@@ -22,13 +23,15 @@
 
     const buttonSize = "button_size_" + props.buttonSize;
 
+    const mobileWidth = "button_m_width_" + props.mobileWidth;
+
 
 
 </script>
 
 
 <template>
-    <button class="button" :class="[buttonColor, buttonType, buttonSize]">
+    <button class="button" :class="[buttonColor, buttonType, buttonSize, mobileWidth]">
         <div v-if="props.buttonIconSide === undefined || props.buttonIconSide === 'left' || props.buttonIconSide === 'left-right'" class="button__icon">
             <feather-icon v-if="customIcon" :type="buttonIcon" />
             <Icon v-else :name="buttonIcon"></Icon>

@@ -176,17 +176,22 @@ interface ModalState {
     touchStartY: number;
     touchCurrentY: number;
     touchEndY: number;
+    touchStartX: number; // Новая переменная для X координаты
+    touchCurrentX: number; // Новая переменная для X координаты
+    touchEndX: number; // Новая переменная для X координаты
     activeModalName: string | null;
     isTouching: boolean;
     isSwiping: boolean;
 }
-
-const modalState =  reactive<ModalState>({
+const modalState = reactive<ModalState>({
     overlayVisible: props.modelValue,
     modalVisible: false,
     touchStartY: 0,
     touchCurrentY: 0,
     touchEndY: 0,
+    touchStartX: 0, // Инициализация новой переменной
+    touchCurrentX: 0, // Инициализация новой переменной
+    touchEndX: 0, // Инициализация новой переменной
     activeModalName: null,
     isTouching: false,
     isSwiping: false,
@@ -216,32 +221,62 @@ const resetTouchState = () => {
     modalState.activeModalName = null;
 };
 
-const handleSwipeEnd = (swipeDistance: number) => {
-    if (swipeDistance > MIN_SWIPE_DISTANCE) {
-        // Добавляем класс для плавного ухода вниз
+const handleSwipeEnd = (swipeDistanceY: number, swipeDistanceX: number) => {
+    if (props.mobileTransition === Transition.DepBottom && swipeDistanceY > MIN_SWIPE_DISTANCE) {
+        // Логика закрытия вниз
         modalState.isTouching = false; // Устанавливаем флаг для начала анимации закрытия
         const modalElement = document.querySelector(`.${currentName}`);
         if (modalElement) {
-            modalElement.classList.add('release-animation');
+            modalElement.classList.add('release-animation-bottom');
             setTimeout(() => {
                 closeModal();
                 setTimeout(() => {
-                    modalElement.classList.remove('release-animation');
+                    modalElement.classList.remove('release-animation-bottom');
+                    modalState.activeModalName = null; // Сбрасываем активное модальное окно после окончания анимации
+                }, 300); // Убираем класс после завершения анимации
+            }, 300); // Задержка перед началом сброса состояния
+        }
+    } else if (props.mobileTransition === Transition.DepRight && swipeDistanceX > MIN_SWIPE_DISTANCE) {
+        // Логика закрытия вправо
+        modalState.isTouching = false; // Устанавливаем флаг для начала анимации закрытия
+        const modalElement = document.querySelector(`.${currentName}`);
+        if (modalElement) {
+            modalElement.classList.add('release-animation-right');
+            setTimeout(() => {
+                closeModal();
+                setTimeout(() => {
+                    modalElement.classList.remove('release-animation-right');
                     modalState.activeModalName = null; // Сбрасываем активное модальное окно после окончания анимации
                 }, 300); // Убираем класс после завершения анимации
             }, 300); // Задержка перед началом сброса состояния
         }
     } else {
         modalState.touchCurrentY = modalState.touchStartY; // Возвращаем в исходное положение, если свайп недостаточный
+        modalState.touchCurrentX = modalState.touchStartX; // Возвращаем в исходное положение, если свайп недостаточный
         modalState.isTouching = false; // Сбрасываем флаг после окончания касания
     }
 };
+
+
+const swipeStyles = computed(() => {
+    if (!modalState.isTouching) return null;
+
+    if (props.mobileTransition === Transition.DepBottom) {
+        return { transform: `translateY(${Math.max((modalState.touchCurrentY - modalState.touchStartY) * SWIPE_SENSITIVITY, 0)}px)` };
+    } else if (props.mobileTransition === Transition.DepRight) {
+        return { transform: `translateX(${Math.max((modalState.touchCurrentX - modalState.touchStartX) * SWIPE_SENSITIVITY, 0)}px)` };
+    }
+
+    return null;
+});
 
 const onTouchStart = (e: TouchEvent) => {
     const target = e.target as HTMLElement;
     if (target.closest('.modal')?.classList.contains(currentName)) {
         modalState.touchStartY = e.touches[0].clientY;
         modalState.touchCurrentY = modalState.touchStartY;
+        modalState.touchStartX = e.touches[0].clientX; // Установка начальной X координаты
+        modalState.touchCurrentX = modalState.touchStartX; // Установка текущей X координаты
         modalState.activeModalName = props.name;
         modalState.isTouching = true; // Устанавливаем флаг, что началось касание
         modalState.isSwiping = true; // Устанавливаем флаг для отслеживания свайпа
@@ -251,15 +286,18 @@ const onTouchStart = (e: TouchEvent) => {
 const onTouchMove = (e: TouchEvent) => {
     if (modalState.isSwiping) {
         modalState.touchCurrentY = e.touches[0].clientY;
+        modalState.touchCurrentX = e.touches[0].clientX; // Обновление текущей X координаты
     }
 };
 
 const onTouchEnd = (e: TouchEvent) => {
     if (modalState.activeModalName === props.name) {
         modalState.touchEndY = e.changedTouches[0].clientY;
-        const swipeDistance = modalState.touchEndY - modalState.touchStartY;
+        modalState.touchEndX = e.changedTouches[0].clientX; // Установка конечной X координаты
+        const swipeDistanceY = modalState.touchEndY - modalState.touchStartY;
+        const swipeDistanceX = modalState.touchEndX - modalState.touchStartX; // Вычисление расстояния свайпа по X
         modalState.isSwiping = false; // Завершаем свайп
-        handleSwipeEnd(swipeDistance);
+        handleSwipeEnd(swipeDistanceY, swipeDistanceX);
     }
 };
 
@@ -275,7 +313,7 @@ const onTouchEnd = (e: TouchEvent) => {
                 <div v-if="modalState.modalVisible" @click.stop class="modal"
                     :class="[currentName, mobileClasses, desktopClasses]" @touchstart="onTouchStart"
                     @touchmove="onTouchMove" @touchend="onTouchEnd"
-                    :style="modalState.isTouching ? { transform: `translateY(${Math.max((modalState.touchCurrentY - modalState.touchStartY) * SWIPE_SENSITIVITY, 0)}px)` } : null">
+                    :style="swipeStyles">
                     <div class="modal__nav">
                         <button @click="closeModal" class="modal__btnClose">
                             <feather-icon type="x" />
