@@ -308,7 +308,8 @@ const onTouchEnd = (e: TouchEvent) => {
         <slot name="action"></slot>
     </div>
     <transition name="fade">
-        <div v-if="modalState.overlayVisible" @click="closeModal" class="overlay">
+        <div v-if="modalState.overlayVisible" @touchstart.stop
+        @touchmove.stop @touchend.stop @click="closeModal" class="overlay">
             <transition :name="currentTransition">
                 <div v-if="modalState.modalVisible" @click.stop class="modal"
                     :class="[currentName, mobileClasses, desktopClasses]" @touchstart="onTouchStart"
@@ -316,7 +317,7 @@ const onTouchEnd = (e: TouchEvent) => {
                     :style="swipeStyles">
                     <div class="modal__nav">
                         <button @click="closeModal" class="modal__btnClose">
-                            <feather-icon type="x" />
+                            <feather-icon size="30px" type="x" />
                         </button>
                     </div>
                     <div class="modal__window">
