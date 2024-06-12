@@ -25,21 +25,16 @@
     border-radius: 0.6rem;
     font-weight: 500;
     align-items: center;
-    padding: 0.5em;
-    height: fit-content;
-    transition: 0.3s;
-    width: fit-content;
-    font-size: 24px;
-    line-height: 125%;
+    padding: 12px;
 }
+
+.modal__btnClose i {
+    height: 30px;
+}
+
 
 .modal__btnClose:hover {
     cursor: pointer;
-}
-
-.modal__btnClose svg {
-    height: 1.25em;
-    width: auto;
 }
 
 .modal__window { 
