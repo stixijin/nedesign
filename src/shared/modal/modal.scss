@@ -26,15 +26,22 @@
     font-weight: 500;
     align-items: center;
     padding: 12px;
+    @media (max-width: 375px) {
+        padding: 4px;
+    }
 }
 
 .modal__btnClose i {
     height: 30px;
+    @media (max-width: 375px) {
+        height: 24px;
+    }
 }
 
 
 .modal__btnClose:hover {
     cursor: pointer;
+
 }
 
 .modal__window { 
@@ -61,6 +68,24 @@
     overflow-y: auto;
     padding: 2px;
     padding: 0 10px;
+  }
+
+
+  .modal__tuchHint {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: -10px;
+    @media (min-width: 769px){
+        display: none;
+    }
+  }
+
+  .modal__tuchHint div {
+    height: 4px;
+    background: $dark_gray20;
+    width: 104px;
+    border-radius: 360px;
   }
 
 

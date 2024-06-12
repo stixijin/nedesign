@@ -321,6 +321,7 @@ const onTouchEnd = (e: TouchEvent) => {
                         </button>
                     </div>
                     <div class="modal__window">
+                        <div v-if="mobileTransition == Transition.DepBottom" class="modal__tuchHint"><div></div></div>
                         <div v-if="hasHeader" class="modal__header">
                             <slot name="header"></slot>
                         </div>

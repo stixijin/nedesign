@@ -1,6 +1,26 @@
 @import "#tokens/main.scss";
 
 
+.mainLogo svg {
+    display: none;
+}
+
+.mainLogo {
+    padding-left: 12px;
+}
+
+@media (min-width: 375px) {
+    .mainLogo svg {
+        display: block;
+    }
+    
+    .mainLogo {
+        padding-left: 8px;
+    }
+}
+
+
+
 @media (max-width: 768px) {
 
     .bottomBar {
@@ -38,6 +58,8 @@
 
     .mobileMenu__modal .modal__window {
         padding-bottom: 16px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
     }
 
 
