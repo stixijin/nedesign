@@ -6,7 +6,6 @@
 @import 'config';
 
 main {
-    width: calc(100vw - ($bodyOffset * 2));
     margin-left:0;
 }
 
@@ -20,14 +19,18 @@ main {
 }
 
 
-body {
-    padding: $bodyOffset;
-}
+
+
+
 
 @media (min-width: 769px) {
-    main {
-        height: 4000px;
-        margin-left: calc($menuWidth + 16px);
-        width: calc(100vw - ($bodyOffset * 2) - $menuWidth - $navManinGap - 5px);
+    body {
+        padding: $bodyOffset;
+        display: grid;
+        grid-template-columns: $menuWidth auto;
+        gap: $navManinGap;
+    }
+    aside {
+        height: calc(100vh - $bodyOffset * 2);
     }
 }

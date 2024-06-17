@@ -34,21 +34,26 @@ const currentLink = Astro.url.pathname;
 ---
 
 
-<App pageTitle={title} bgImg={bgArea}>
-    <div class="container">
+<App class="body" pageTitle={title} bgImg={bgArea}>
+    <aside>
         <MainMenu
-            client:load
-            currentLink={currentLink}
-            logoArea={areaTitle}
-            logoLink={areaLink}
+        client:load
+        currentLink={currentLink}
+        logoArea={areaTitle}
+        logoLink={areaLink}
         >
-            <div slot="menuContent">
+        <div slot="menuContent">
+            <MenuGroup client:load groupItems={desctopMenuItems}></MenuGroup>
+        </div>
+        </MainMenu>
+        <MobileMenu client:load menuItems={mobileMenuItems} currentLink={currentLink} logoArea={areaTitle} logoLink={areaLink}>
+
+            <div slot="body">
                 <MenuGroup client:load groupItems={desctopMenuItems}></MenuGroup>
             </div>
-        </MainMenu>
-        <MobileMenu client:load menuItems={mobileMenuItems} />
-        <main>
-            <slot name="pageContent"></slot>
-        </main>
-    </div>
+        </MobileMenu>
+    </aside>
+<main>
+    <slot name="pageContent" />
+</main>
 </App>

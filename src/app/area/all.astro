@@ -37,25 +37,25 @@ const areaLink = "/";
 const title = areaTitle + "  |  " + pageTitle;
 ---
 
-<App pageTitle={title} bgImg={bgArea}>
-    <div class="container">
-        <MainMenu
+<App class="body" pageTitle={title} bgImg={bgArea}>
+        <aside>
+            <MainMenu
             client:load
             currentLink={currentLink}
             logoArea={areaTitle}
             logoLink={areaLink}
-        >
+            >
             <div slot="menuContent">
                 <MenuGroup client:load groupItems={desctopMenuItems}></MenuGroup>
             </div>
-        </MainMenu>
-        <MobileMenu client:load menuItems={mobileMenuItems} currentLink={currentLink} logoArea={areaTitle} logoLink={areaLink}>
+            </MainMenu>
+            <MobileMenu client:load menuItems={mobileMenuItems} currentLink={currentLink} logoArea={areaTitle} logoLink={areaLink}>
 
-            <div slot="body">
-                <MenuGroup client:load groupItems={desctopMenuItems}></MenuGroup>
-            </div>
-        </MobileMenu>
-    </div>
+                <div slot="body">
+                    <MenuGroup client:load groupItems={desctopMenuItems}></MenuGroup>
+                </div>
+            </MobileMenu>
+        </aside>
     <main>
         <slot name="pageContent" />
     </main>
