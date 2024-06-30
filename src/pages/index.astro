@@ -1,11 +1,12 @@
 ---
 import All from '#app/area/all.astro';
-import CallbackForm from '#features/callbackForm/ui/callbackForm.vue';
+import Strengths from "#entities/strengths/ui/advantages.vue";
 
 const pageTitle = "Главная";
 
 ---
 <All pageTitle={pageTitle}>
         <div slot="pageContent">
+                <Strengths></Strengths>
         </div>
 </All>

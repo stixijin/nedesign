@@ -57,6 +57,8 @@ const title = areaTitle + "  |  " + pageTitle;
             </MobileMenu>
         </aside>
     <main>
-        <slot name="pageContent" />
+        <div class="container">
+            <slot name="pageContent" />
+        </div>
     </main>
 </App>
